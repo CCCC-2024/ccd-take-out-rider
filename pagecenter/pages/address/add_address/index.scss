@@ -1,0 +1,144 @@
+page {
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.holder {
+  color: #999;
+}
+
+.addAddr {
+  padding: 0 20upx;
+  background-color: #fff;
+
+  .uni-list-cell {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20upx 0;
+    box-sizing: border-box;
+    height: 100upx;
+    font-size: 32upx;
+    color: #333;
+    background: #fff;
+  }
+
+  .addr {
+    font-size: 32upx;
+    padding: 30upx 0;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &:after {
+      @include bottom-line(#f5f5f7)
+    }
+
+    .addr_title {
+      display: inline-block;
+      width: 24%;
+    }
+
+    .chose_addr {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 70%;
+    }
+  }
+
+  .cell {
+    font-size: 32upx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 110upx;
+    border-bottom: 1px solid #f5f5f7;
+
+    .input-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+
+      .title {
+        display: inline-block;
+        width: 160upx;
+      }
+
+      input {
+        text-align: right;
+        flex: 1;
+      }
+    }
+
+    .arrow {
+      display: flex;
+      align-items: center;
+      height: 110upx;
+
+      text {
+        margin-right: 10upx;
+        color: #999;
+        font-size: 32upx;
+      }
+
+      .iconfont {
+        font-size: 24upx;
+        color: #999;
+      }
+    }
+
+    .iconfont {
+      font-size: 24upx;
+      color: #999;
+    }
+
+    input {
+      color: #333;
+    }
+  }
+
+  .address {
+    display: flex;
+    flex-direction: column;
+    font-size: 32upx;
+    border-bottom: 1px solid #f5f5f7;
+
+    .title {
+      line-height: 110upx;
+    }
+
+    textarea {
+      width: 100%;
+      height: 160upx;
+      color: #333;
+    }
+  }
+
+  .tips {
+    padding: 20upx 0;
+    font-size: 26upx;
+  }
+
+  .btns {
+    position: fixed;
+    bottom: 100upx;
+    left: 5%;
+    width: 90%;
+
+    .btns_tijiao {
+      line-height: 88upx;
+      border-radius: 40upx;
+      background-color: #00DC79;
+      background:$custom-main-bg;
+      text-align: center;
+      font-size: 32upx;
+      color: #fff;
+    }
+  }
+}

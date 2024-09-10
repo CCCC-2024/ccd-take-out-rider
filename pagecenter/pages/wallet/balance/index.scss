@@ -1,0 +1,121 @@
+page {
+  background: #F8F8F8;
+
+  .page-wapper {
+    .page-header-placeholder {
+      height: 128upx;
+    }
+
+    .notice {
+      height: 72upx;
+      background: rgba(254, 252, 235, 1);
+      opacity: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 24upx;
+      color: #F96A0E;
+      padding: 0 0 0 32upx;
+
+      .notice-rside {
+        padding: 0 32upx;
+        line-height: 72upx;
+
+        .iconfont {
+          font-size: 22upx;
+        }
+      }
+    }
+
+    .page-header {
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      /* #ifdef H5 */
+      top: 44px;
+      /* #endif */
+      display: flex;
+      height: 108upx;
+      z-index: 99;
+      background-color: #fff;
+
+      .item {
+        flex: 1;
+        color: #666;
+        font-size: 28upx;
+        text-align: center;
+        position: relative;
+        line-height: 108upx;
+
+        &.active {
+          color: $fu-main-color;
+
+          &:after {
+            content: '';
+            display: block;
+            width: 48upx;
+            height: 6upx;
+            position: absolute;
+            bottom: 10upx;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background: $custom-main-bg;
+          }
+        }
+      }
+    }
+
+    .list-wrapper {
+      padding: 0 32upx;
+      background-color: #fff;
+
+      .item {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 32upx 0;
+
+        &.active {
+          .rside {
+            color: #333;
+          }
+        }
+
+        &:after {
+          @include bottom-line(#eee);
+        }
+
+        &:last-child:after {
+          display: none;
+        }
+
+        .lside {
+          flex: 1;
+          width: 0;
+          padding-right: 80upx;
+
+          .title {
+            font-size: 28upx;
+            font-weight: 400;
+            line-height: 38upx;
+            color: rgba(51, 51, 51, 1);
+          }
+
+          .desc {
+            font-size: 24upx;
+            color: #999999;
+            padding-top: 24upx;
+          }
+        }
+
+        .rside {
+          font-size: 32upx;
+          color: #F84E26;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

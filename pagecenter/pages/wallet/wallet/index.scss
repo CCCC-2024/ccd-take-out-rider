@@ -1,0 +1,207 @@
+page {
+  background: #FFFFFF;
+}
+.page-wapper {
+  .title_box{
+    position: relative;
+    background-color: #FFFFFF;
+    height: 362rpx;
+    .walletBg{
+      width: 750rpx;
+      height: 446rpx;
+    }
+    .headTitle{
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 9999;
+      .status_bar{
+        height: var(--status-bar-height);
+        width: 100%;
+      }
+      .title{
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 24rpx 25rpx;
+        font-size: 28rpx;
+        color: #fff;
+        .purse{
+          font-size: 36rpx;
+          font-weight: 460;
+          margin-left: 75rpx;
+        }
+        .bindCount{
+          font-size: 32rpx;
+        }
+      }
+    }
+    .amount{
+      padding: 20rpx 0 32rpx;
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      justify-content: space-around;
+      text-align: center;
+      .amount_con{
+        color: #FFFFFF;
+        text-align: center;
+        .amount_con_til{
+          display: flex;
+          flex-direction: row;   
+          align-items: center;
+          .amount_con_til_head{
+            margin-right: 10rpx;
+          }
+        }
+        .money{
+          font-weight: 600;
+          margin-top: 15rpx;
+          color: #FFFFFF;
+          .sign{
+            font-size: 40rpx;
+          }
+          .sign_price{
+            font-size: 60rpx;
+          }
+        }
+      }
+      .amount_line{
+        width: 1px;
+        height: 106rpx;
+        background-color: #EEEEEE;
+      }
+    }
+  }
+  .content_bg{
+    margin-top: -38rpx;
+    position: relative;
+    z-index: 9999;
+    padding: 0 24rpx;
+    .contents{
+      // padding: 0 74rpx;
+      background-color: #FFFFFF;
+      width: 702rpx;
+      padding: 48rpx 48rpx 28rpx;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px 0 #F5F5F7;
+      .income{
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 24rpx;
+        font-size: 28rpx;
+        .everIncome{
+          text-align: center;
+          display: flex;
+          flex-direction: row;   
+          align-items: center;
+          .reven{
+            font-size: 28rpx;
+            color: #666666;
+            margin-right: 10rpx;
+          }
+          .revenPrice{
+            font-size: 32rpx;
+            font-weight: 600;
+          }
+        }
+      }
+      .cash{
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        justify-content: center;
+        width: 360rpx;
+        height: 66rpx;
+        line-height: 66rpx;
+        border-radius: 45rpx;
+        text-align: center;
+        font-size: 28rpx;
+        margin: 40rpx auto 0;
+        background-color: #F1FBFF;
+        color: #1CB5FD;
+        image{
+          width: 32rpx;
+          height: 32rpx;
+          margin-right: 10rpx;
+        }
+      }
+    }
+    .record{
+      // padding: 0 24rpx;
+      .record_title{
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        justify-content: space-between;
+        padding: 32rpx 0 0;
+        .til_title{
+          display: flex;
+          flex-direction: row;   
+          align-items: center;
+          .lines{
+            width: 6rpx;
+            height: 28rpx;
+            background-color: #1CB5FD;
+            margin-right: 15rpx;
+            border-radius: 5px;
+          }
+          .til_left{
+            font-size: 36rpx;
+            font-weight: 550;
+          }
+        }
+        .lookAll{
+          font-size: 24rpx;
+          color: #666666;
+        }
+      }
+      .list{
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 0 24rpx 44rpx;
+        .list_item{
+          padding: 32rpx 0;
+          position: relative;
+          &:after {
+            @include bottom-line(#eee)
+          }
+          .item_left{
+            display: flex;
+            flex-direction: row;   
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            .remarkCon{
+              font-size: 32rpx;
+            }
+            .item_right{
+              font-size: 36rpx;
+              font-weight: 600;
+            }
+          }
+          .time{
+            margin-top: 16rpx;
+            color: #666666;
+            font-size: 24rpx;
+          }
+        }
+      }
+    }
+  }
+  
+  .explainCon{
+    width: 500rpx;
+    min-height: 400rpx;
+    padding: 32rpx;
+    .explainCon_til{
+      text-align: center;
+      font-size: 32rpx;
+      margin-bottom: 24rpx;
+    }
+  }
+}

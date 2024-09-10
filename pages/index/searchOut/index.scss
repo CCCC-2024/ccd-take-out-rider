@@ -1,0 +1,183 @@
+page {
+  background-color: #F8F8F8;
+}
+.page-wapper{
+  .hearder{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 15rpx 32rpx;
+    // position: relative;
+    &:after {
+      @include bottom-line(#eee)
+    }
+    background-color: #FFFFFF;
+    z-index: 9999;
+    .status_bar{
+      height: var(--status-bar-height);
+      width: 100%;
+      background-color: #fff;
+    }
+    .searchTab{
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      justify-content: space-between;
+      input{
+        width: 574rpx;
+        height: 64rpx;
+        border-radius: 45px;
+        padding: 0 24rpx;
+        font-size: 24rpx;
+        background-color: #F9F9F9;
+      }
+    }
+  }
+  .recordBox{
+    padding: calc(100rpx + var(--status-bar-height)) 24rpx 32rpx;
+    .list{
+      padding: 0 32rpx 32rpx;
+      background-color: #FFFFFF;
+      border-radius: 8rpx;
+      margin-top: 20rpx;
+      .lineStyle{
+        position: relative;
+        &:after {
+          @include bottom-line(#eee)
+        }
+      }
+      .list_row{
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        justify-content: space-between;
+        padding: 27rpx 0;
+        .list_row_left{
+          display: flex;
+          flex-direction: row;   
+          align-items: center;
+          .orderType{
+            color: #FFFFFF;
+            width: 72rpx;
+            height: 32rpx;
+            line-height: 32rpx;
+            text-align: center;
+            border-radius: 45px;
+            background-color: #008CFF;
+            font-size: 20rpx;
+            margin-left: 24rpx;
+          }
+        }
+        .status_txt{
+          font-size: 24rpx;
+          color: #666666;
+          display: block;
+          margin-top: 20rpx;
+        }
+        .gap{
+          font-size: 28rpx;
+        }
+        .list_receipts{
+          margin-left: -32rpx;
+          font-size: 24rpx;
+          padding: 0 20rpx 0 32rpx;
+          display: inline-block;
+        }
+      }
+      .list_yj{
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        justify-content: space-between;
+        .list_receipts{
+          height: 56rpx;
+          border-radius: 0 45px 45px 0;
+          background-color: #FDE7E6;
+          line-height: 56rpx;
+          color: #EB1512;
+          margin-left: -32rpx;
+          font-size: 24rpx;
+          padding: 0 20rpx 0 32rpx;
+          display: inline-block;
+        }
+        .od_num{
+          font-size: 36rpx;
+          color: #EB1512;
+          font-weight: 600;
+        }
+      }
+      .list_con{
+        padding: 40rpx 0 32rpx;
+        .con_part{
+          display: flex;
+          flex-direction: row;   
+          align-items: center;
+          .charact{
+            font-size: 18rpx;
+            margin-right: 15rpx;
+            text-align: center;
+            .icon_img{
+              width: 33rpx;
+              height: 36rpx;
+            }
+          }
+          .part_right{
+            .addr_dis{
+              font-size: 24rpx;
+              color: #999999;
+              display: flex;
+              flex-direction: row;   
+              align-items: center;
+              image{
+                width: 57rpx;
+                height: 57rpx;
+                margin-left: 22rpx;
+              }
+            }
+            .address-style{
+              margin-top: 16rpx;
+              display: flex;
+              flex-direction: row;   
+              align-items: center;
+              .addr{
+                width: 400rpx;
+              }
+              .addr-img{
+                width: 56rpx;
+                height: 56rpx;
+                margin-left: 15rpx;
+              }
+            }
+          }
+        }
+        .two_part{
+          margin-top: 40rpx;
+        }
+      }
+      .floor_btn{
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        justify-content: center;
+        padding: 32rpx 0 0;
+        .btns{
+          width: 300rpx;
+          height: 88rpx;
+          line-height: 88rpx;
+          border-radius: 45px;
+          text-align: center;
+          font-size: 24rpx;
+        }
+        .look{
+          border: 1px solid #999999;
+        }
+        .rob{
+          background-color: #3994D8;
+          color: #fff;
+          margin-left: 20rpx;
+        }
+      }
+    }
+  }
+}

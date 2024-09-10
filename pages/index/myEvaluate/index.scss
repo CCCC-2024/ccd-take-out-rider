@@ -1,0 +1,34 @@
+page {
+  background-color: #FFFFFF;
+}
+.page-wapper{
+  padding: 0 32rpx;
+  .scoreEver{
+    display: flex;
+    flex-direction: row;   
+    align-items: center;
+    margin-top: 29rpx;
+  }
+  .evalTil{
+    font-size: 32rpx;
+    font-weight: 600;
+    margin-top: 32rpx;
+  }
+  .evalCont{
+    font-size: 28rpx;
+    margin-top: 32rpx;
+  }
+  .imgBox{
+    display: flex;
+    flex-direction: row;   
+    align-items: center;
+    flex-wrap: wrap;
+    .images{
+      width: 200rpx;
+      height: 200rpx;
+      margin-top: 20rpx;
+      margin-right: 26rpx;
+      border-radius: 5px;
+    }
+  }
+}

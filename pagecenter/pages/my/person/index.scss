@@ -1,0 +1,44 @@
+page {
+  background-color: #F8F8F8;
+}
+.page-wapper{
+  padding: 0 24rpx;
+  background-color: #FFFFFF;
+  .page-box{
+    padding: 30rpx 0;
+    display: flex;
+    flex-direction: row;   
+    align-items: center;
+    justify-content: space-between; 
+    position: relative;
+    &:after {
+       @include bottom-line(#eee)
+    }
+    image{
+      width: 94rpx;
+      height: 94rpx;
+      border-radius: 45%;
+    }
+    .boxLeft{
+      font-weight: 600;
+    }
+    input{
+      text-align: right;
+      color: #666666 !important;
+    }
+  }
+  .save_btn{
+    width: 686rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #fff;
+    background: linear-gradient(to right,#FF631B,#F64722);
+    position: fixed;
+    left: 50%;
+    margin-left: -343rpx;
+    bottom: 48rpx;
+    border-radius: 45px;
+  }
+}

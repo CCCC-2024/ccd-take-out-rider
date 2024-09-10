@@ -1,0 +1,237 @@
+page {
+  background-color: #fff;
+}
+.page-wrapper{
+  .tips{
+    width: 750rpx;
+    text-align: center;
+    padding: 32rpx 0;
+    font-size: 28rpx;
+    image{
+      width: 686rpx;
+      height: 240rpx;
+    }
+  }
+  .conts{
+    padding: 0 32rpx;
+    .conts_item{
+      font-size: 32rpx;
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      justify-content: space-between;
+      padding: 32rpx 0;
+      position: relative;
+      &:after {
+        @include bottom-line(#eee)
+      }
+      input{
+        text-align: right;
+        font-size: 32rpx;
+      }
+      .conts_item_right{
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        .iconRight{
+          margin-left: 15rpx;
+        }
+      }
+    }
+    .conts_addr{
+      font-size: 32rpx;
+      padding: 32rpx 0;
+      position: relative;
+      &:after {
+        @include bottom-line(#eee)
+      }
+      textarea{
+        height: 240rpx;
+        width: 686rpx;
+        background-color: #F8F8F8;
+        padding: 24rpx;
+        font-size: 28rpx;
+        margin-top: 16rpx;
+      }
+    }
+    .size_item{
+      position: relative;
+      &:after {
+        @include bottom-line(#eee)
+      }
+      padding: 32rpx 0;
+      font-size: 32rpx;
+      .mold-style{
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 24rpx;
+        .ever-mold{
+          display: flex;
+          flex-direction: row;   
+          align-items: center;
+          input{
+            font-size: 32rpx;
+            margin-left: 15rpx;
+          }
+        }
+      }
+    }
+    .cityTip{
+      font-size: 24rpx;
+      color: #BFBFBF;
+      margin-top: 16rpx;
+    }
+    
+    .up_tip{
+      font-size: 32rpx;
+    }
+    .margin-styl{
+      margin-top: 32rpx;
+    }
+    .up_imgs{
+      margin-top: 40rpx;
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      .imgs_box{
+        font-size: 28rpx;
+        image{
+          width: 332rpx;
+          height: 216rpx;
+          // border-radius: 8px;
+          margin-bottom: 26rpx;
+        }
+        .paperBox{
+          width: 332rpx;
+          height: 216rpx;
+          border-radius: 8px;
+          margin-bottom: 26rpx;
+          position: relative;
+          .paperImg{
+            width: 332rpx;
+            height: 216rpx;
+            border-radius: 10rpx; 
+          }
+          .close_img{
+            width: 45rpx;
+            height: 45rpx;
+            position: absolute;
+            right: -15rpx;
+            top: -15rpx;
+          }
+        }
+      }
+      .imgs_right{
+        color: #666666;
+      }
+    }
+  }
+  .bg_tip{
+    width: 100%;
+    height: 20rpx;
+    background-color: #F6F7F9;
+  }
+  .up_content{
+    padding: 32rpx 32rpx 230rpx;
+    .up_tip{
+      font-size: 32rpx;
+    }
+    .margin-styl{
+      margin-top: 32rpx;
+    }
+    .up_imgs{
+      margin-top: 40rpx;
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      .imgs_box{
+        font-size: 28rpx;
+        image{
+          width: 332rpx;
+          height: 216rpx;
+          margin-bottom: 26rpx;
+        }
+        .paperBox{
+          width: 332rpx;
+          height: 216rpx;
+          border-radius: 8px;
+          margin-bottom: 26rpx;
+          position: relative;
+          .paperImg{
+            width: 332rpx;
+            height: 216rpx;
+            border-radius: 10rpx; 
+          }
+          .close_img{
+            width: 45rpx;
+            height: 45rpx;
+            position: absolute;
+            right: -15rpx;
+            top: -15rpx;
+          }
+        }
+      }
+      .imgs_right{
+        color: #666666;
+      }
+    }
+    .line-style{
+      position: relative;
+      &:after {
+        @include bottom-line(#eee)
+      }
+      padding-bottom: 32rpx;
+    }
+    .notes{
+      font-size: 24rpx;
+      color: #666666;
+      margin-top: 55rpx;
+    }
+    
+    .fotter{
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #FFFFFF;
+      .sub_mit{
+        width: 686rpx;
+        height: 88rpx;
+        line-height: 88rpx;
+        text-align: center;
+        border-radius: 45px;
+        margin: 24rpx auto 0;
+        background: linear-gradient(to right,#29CAFD,#1CABF5);
+        color: #fff;
+        font-size: 32rpx;
+      }
+      .treaty{
+        margin-top: 24rpx;
+        text-align: center;
+        font-size: 20rpx;
+        color: #666666;
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 40rpx;
+        .treatyLeft{
+          display: flex;
+          flex-direction: row;   
+          align-items: center;
+          image{
+            width: 32rpx;
+            height: 32rpx;
+            margin-right: 15rpx;
+          }
+        }
+      }
+    }
+  }
+}

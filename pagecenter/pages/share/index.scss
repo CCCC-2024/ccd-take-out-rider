@@ -1,0 +1,133 @@
+page {
+  background-color: #FFFFFF;
+}
+.entir-img{
+  width: 100%;
+  height: 100vh;
+}
+.contents{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  color: #FFFFFF;
+  // padding-top: 80rpx;
+  .invite-title{
+    position: relative;
+    .invitat{
+      font-size: 80rpx;
+      font-weight: 600;
+    }
+    .my-invitat{
+      width: 141rpx;
+      height: 44rpx;
+      line-height: 44rpx;
+      border-radius: 45px 0 0 45px;
+      background-color: #EA4E1C;
+      color: #FFD3C0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+  .invite-code{
+    font-size: 40rpx;
+  }
+  .invite-box{
+    position: fixed;
+    left: 50%;
+    margin-left: -309.5rpx;
+    bottom: 47rpx;
+    width: 619rpx;
+    height: 787rpx;
+    .box-img{
+      width: 619rpx;
+      height: 787rpx;
+    }
+    .conts-box{
+      position: absolute;
+      width: 619rpx;
+      height: 787rpx;
+      left: 0;
+      top: 0;
+      display: flex;
+      flex-direction: column;   
+      align-items: center;
+      justify-content: space-between;
+      padding: 55rpx 0 54rpx;
+      color: #333333;
+      .content-top{
+        .invite-logo{
+          width: 392rpx;
+          height: 392rpx;
+          margin-bottom: 32rpx;
+        }
+      }
+      .content-btm{
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        button{
+          border: none !important;
+          outline: none !important;
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+        button:focus{
+          outline: none;
+        }
+        .tns{
+          width: 250rpx;
+          height: 63rpx;
+          line-height: 63rpx;
+          text-align: center;
+          border-radius: 45px;
+          font-size: 24rpx;
+          color: #FFFFFF;
+        }
+        .shareBtn{
+          background: linear-gradient(#F1301C,#F75830);
+        }
+        .saveBtn{
+          background: linear-gradient(#FE7122,#FF8C33);
+        }
+      }
+    }
+  }
+}
+
+.shareProp{
+  width: 100%;
+  background-color: #FFFFFF;
+  // height: 200rpx;
+  .shareTop{
+    display: flex;
+    flex-direction: row;   
+    align-items: center;
+    justify-content: space-between;
+    padding: 48rpx 160rpx;
+    position: relative;
+    &:after {
+      @include bottom-line(#eee)
+    }
+    .everOne{
+      font-size: 28rpx;
+      text-align: center;
+      image{
+        width: 97rpx;
+        height: 97rpx;
+        margin-bottom: 32rpx;
+      }
+    }
+  }
+  .cleanBtn{
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 32rpx;
+  }
+}

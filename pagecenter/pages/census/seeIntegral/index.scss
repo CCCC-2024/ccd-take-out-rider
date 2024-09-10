@@ -1,0 +1,146 @@
+page {
+  background: #fff;
+}
+.page-wapper {
+    background-color: #fff;
+    // padding: 0 32upx;
+    .title_sty{
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #fff;
+      z-index: 999;
+      .status_bar{
+        height: var(--status-bar-height);
+        width: 100%;
+      }
+      .titles{
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 24rpx;
+        font-size: 36rpx;
+        // .u-button{
+        //   border: none;
+        //   outline: none;
+        // }
+        // image{
+        //   width: 40rpx;
+        //   height: 40rpx;
+        // }
+        .riliImg{
+          margin: 0;
+          padding: 0;
+          border: none;
+          outline: none;
+          image{
+            width: 40rpx;
+            height: 40rpx;
+          }
+        }
+        .u-hairline-border[data-v-6e15e680]:after{
+          border: none;
+          outline: none;
+        }
+      }
+    }
+    .tab{
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      // justify-content: space-around;
+      height: 86rpx;
+      width: 100%;
+      position: fixed;
+      top: calc(80rpx + var(--status-bar-height));
+      left: 0;
+      background-color: #fff;
+      padding: 0 32rpx;
+      position: relative;
+      &:after {
+        @include bottom-line(#eee)
+      }
+      text{
+        margin-right: 15rpx;
+      }
+      .tab_item{
+        font-size: 32rpx;
+        position: relative;
+        .active{
+          color: #F64722;
+          font-weight: 550;
+        }
+        .line{
+          width: 32rpx;
+          height: 6rpx;
+          background-color: #F64722;
+          position: absolute;
+          left: 50%;
+          margin-left: -16rpx;
+          bottom: -15rpx;
+        }
+      }
+    }
+    .list-wrapper {
+      padding: calc(75rpx + var(--status-bar-height)) 32rpx 0;
+      .item {
+        padding: 32upx 0;
+        position: relative;
+        &:after {
+          @include bottom-line(#eee)
+        }
+        .lside {
+          display: flex;
+          flex-direction: row;   
+          align-items: center;
+          justify-content: space-between;  
+          .title {
+            font-size: 28upx;
+            font-weight: 400;
+            line-height: 38upx;
+            // width: 521rpx;
+            color: rgba(51, 51, 51, 1);
+            // white-space: nowrap;
+            // text-overflow: ellipsis;
+            // overflow: hidden;
+            // word-break: break-all;
+            font-size: 32rpx;
+            font-weight: 550;
+            text-align: left;
+          }
+          .rside {
+            font-size: 24upx;
+          }
+        }
+        .desc {
+          font-size: 24upx;
+          color: #999999;
+          padding-top: 24upx;
+          display: flex;
+          flex-direction: row;   
+          align-items: center;
+          justify-content: space-between;  
+          width: 100%;
+          .prices{
+            font-size: 32rpx;
+            font-weight: 600;
+            color: #FA2033;
+          }
+        }
+        .status1{
+          width: 118rpx;
+          height: 118rpx;
+          position: absolute;
+          right: 0;
+          top: 20rpx;
+        }
+      }
+    }
+    .title{
+      color: $u-type-primary;
+      text-align: center;
+      padding: 20rpx 0 0 0;
+    }
+  }

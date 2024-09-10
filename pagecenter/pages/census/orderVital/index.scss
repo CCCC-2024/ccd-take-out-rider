@@ -1,0 +1,129 @@
+page {
+  background: #F8F8F8;
+}
+.page-wapper {
+    // background-color: #fff;
+    // padding: 0 32upx;
+    .title_sty{
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #fff;
+      z-index: 999;
+      position: relative;
+      &:after {
+        @include bottom-line(#eee)
+      }
+      .status_bar{
+        height: var(--status-bar-height);
+        width: 100%;
+      }
+      .titles{
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        justify-content: space-between;
+        padding: 32rpx 24rpx;
+        font-size: 36rpx;
+        .riliImg{
+          margin: 0;
+          padding: 0;
+          border: none;
+          outline: none;
+          image{
+            width: 40rpx;
+            height: 40rpx;
+          }
+        }
+        .u-hairline-border[data-v-6e15e680]:after{
+          border: none;
+          outline: none;
+        }
+      }
+    }
+    
+    .exhibit{
+      width: 100%;
+      height: 72rpx;
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 29rpx;
+      .exhibit-left{
+        color: #333333;
+      }
+    }
+    .list-wrapper {
+      padding: 32rpx 24rpx 0;
+      .orderBox{
+        width: 702rpx;
+        height: 216rpx;
+        position: relative;
+        .bgImg{
+          width: 702rpx;
+          height: 216rpx;
+        }
+        .allOrder{
+          display: flex;
+          flex-direction: row;   
+          align-items: center;
+          justify-content: space-around;
+          text-align: center;
+          color: #FFFFFF;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 702rpx;
+          height: 216rpx;
+          .nums{
+            font-size: 40rpx;
+            margin-bottom: 24rpx;
+          }
+        }
+      }
+      .orderList{
+        margin-top: 32rpx;
+        .times{
+          font-size: 28rpx;
+          font-weight: 550;
+        }
+        .orderCont{
+          display: flex;
+          flex-direction: row;   
+          align-items: center;
+          justify-content: space-around;
+          text-align: center;
+          background-color: #FFFFFF;
+          border-radius: 5px;
+          padding: 40rpx 0;
+          margin-top: 16rpx;
+          .nums{
+            font-size: 32rpx;
+            margin-bottom: 24rpx;
+          }
+        }
+      }
+    }
+    .title{
+      color: $u-type-primary;
+      text-align: center;
+      padding: 20rpx 0 0 0;
+    }
+    
+    .senior{
+      width: 686rpx;
+      height: 88rpx;
+      line-height: 88rpx;
+      border-radius: 45px;
+      background-color: #3994D8;
+      color: #FFFFFF;
+      position: fixed;
+      left: 50%;
+      margin-left: -343rpx;
+      bottom: 57rpx;
+      text-align: center;
+      font-size: 32rpx;
+    }
+  }

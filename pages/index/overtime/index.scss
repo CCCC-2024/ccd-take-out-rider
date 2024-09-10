@@ -1,0 +1,63 @@
+page {
+  background-color: #F6F7F9;
+}
+.page-wapper{
+  padding: 0 24rpx;
+  .orderList{
+    background-color: #FFFFFF;
+    padding: 0 32rpx 32rpx;
+    margin-top: 24rpx;
+    border-radius: 3px;
+    font-size: 28rpx;
+    .ident{
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      padding: 24rpx 0;
+      position: relative;
+      &:after {
+        @include bottom-line(#eee)
+      }
+      .copyStyle{
+        width: 74rpx;
+        height: 36rpx;
+        line-height: 36rpx;
+        border: 1px solid #1CB5FD;
+        text-align: center;
+        font-size: 24rpx;
+        color: #1CB5FD;
+        margin-left: 20rpx;
+        border-radius: 3px;
+      }
+    }
+    .rowLineorder{
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      justify-content: space-between;
+      padding: 32rpx 0;
+      .ending{
+        color: #1CB5FD;
+      }
+      .succes{
+        color: #4DC777;
+      }
+      .fail{
+        color: #FD0D1B;
+      }
+    }
+    .rowLineTime{
+      color: #666666;
+      margin-bottom: 24rpx;
+    }
+    .rowLineImg{
+      image{
+        width: 120rpx;
+        height: 120rpx;
+        border-radius: 5px;
+        margin-right: 16rpx;
+        margin-top: 24rpx;
+      }
+    }
+  }
+}

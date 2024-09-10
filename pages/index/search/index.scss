@@ -1,0 +1,65 @@
+page {
+  background-color: #FFFFFF;
+}
+.page-wapper{
+  .hearder{
+    padding: 15rpx 32rpx;
+    position: relative;
+    &:after {
+      @include bottom-line(#eee)
+    }
+    .status_bar{
+      height: var(--status-bar-height);
+      width: 100%;
+      background-color: #fff;
+    }
+    .searchTab{
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      justify-content: space-between;
+      input{
+        width: 574rpx;
+        height: 64rpx;
+        border-radius: 45px;
+        padding: 0 24rpx;
+        font-size: 24rpx;
+        background-color: #F9F9F9;
+      }
+    }
+  }
+  .recordBox{
+    padding: 32rpx 24rpx;
+    .recordTitle{
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      justify-content: space-between;
+      .lately{
+        font-size: 32rpx;
+      }
+    }
+    .record-content{
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      flex-wrap: wrap;
+      .everOne{
+        padding: 11rpx 28rpx;
+        background-color: #F8F8F8;
+        border-radius: 45px;
+        min-width: 128rpx;
+        font-size: 28rpx;
+        margin-top: 24rpx;
+        margin-right: 20rpx;
+      }
+    }
+  }
+  
+  .emptyImg{
+    width: 380rpx;
+    height: 300rpx;
+    display: block;
+    margin: 300rpx auto 0;
+  }
+}

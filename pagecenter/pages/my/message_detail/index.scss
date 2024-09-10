@@ -1,0 +1,44 @@
+page {
+  font-size: 28upx;
+  background-color: #ffffff;
+
+  .wrap {
+    padding-bottom: 44px;
+  }
+
+  .content-wapper {
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+    padding: 32upx;
+
+    .titles {
+      font-size: 40upx;
+      font-weight: bold;
+      color: #333;
+      white-space:normal;
+      word-break:break-all;
+      word-wrap: break-word;
+    }
+
+    .time {
+      font-size: 24upx;
+      color: #999;
+      margin-top: 29upx;
+      margin-bottom: 30upx;
+    }
+
+    .content {
+      width: 100%;
+      font-size: 28upx;
+      color: #4a4a4a;
+      line-height: 46upx;
+      letter-spacing: 5upx;
+
+      image {
+        width: 100%;
+        margin: 60upx 0 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "id": "wzc-toMpWeixin",
+    "name": "APP端打开微信小程序，小程序打开另一个小程序。",
+    "version": "1.0.1",
+    "description": "APP端打开微信小程序，小程序打开另一个小程序。",
+    "keywords": [
+        "调起小程序"
+    ]
+}

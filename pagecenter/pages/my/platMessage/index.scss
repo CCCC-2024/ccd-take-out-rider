@@ -1,0 +1,44 @@
+page {
+  background-color: #F8F8F8;
+}
+.page-wrapper {
+    padding: 0 32upx;
+    .list{
+      padding: 32rpx 0;
+      // position: relative;
+      // &:after {
+      //   @include bottom-line(#eee)
+      // }
+      .time{
+        text-align: center;
+        color: #999999;
+        font-size: 24rpx;
+        margin-bottom: 24rpx;
+      }
+      .contBox{
+        background-color: #FFFFFF;
+        border-radius: 8px;
+        overflow: hidden;
+        image{
+          width: 686rpx;
+          height: 320rpx;
+          border-radius: 8rpx 8rpx 0 0;
+        }
+        .list-title {
+          font-size: 32rpx;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          word-break: break-all;
+          padding: 0 24rpx;
+          margin-top: 24rpx;
+        }
+        .content {
+          font-size: 28upx;
+          color: #999;
+          padding: 24upx 24rpx 32rpx;
+          line-height: 36upx;
+        }
+      }
+    }
+  }

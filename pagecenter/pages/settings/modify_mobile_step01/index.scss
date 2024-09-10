@@ -1,0 +1,182 @@
+page {
+  font-size: 28upx;
+  background: #fff;
+  height: 100%;
+
+  input {
+    height: 18px;
+    padding: 20px 0;
+    line-height: 20px;
+    color: #333;
+  }
+
+  .input-placeholder {
+    line-height: 20px;
+  }
+}
+
+.notice {
+  line-height: 100upx;
+  background: rgba(255, 83, 7, .08);
+  padding: 0 32upx;
+  color: $fu-main-color;
+  text-align: center;
+  font-size: 32upx;
+}
+
+.icon-theme {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64upx;
+  align-items:center;
+  border-bottom: 20upx solid rgba(248,248,248,1);
+
+  image {
+    width: 200upx;
+    height: 200upx;
+    display: block;
+  }
+
+  .desc {
+    font-size: 32upx;
+    color: #333;
+    padding: 40upx 10upx 20upx;
+  }
+
+  .mobile {
+    font-size: 40upx;
+    font-weight: bold;
+    color: #333;
+  }
+}
+
+.warp {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* #ifdef H5 */
+    min-height: calc(100vh - 44px);
+    /* #endif */
+    box-sizing: border-box;
+    padding-bottom: 60upx;
+    justify-content: space-between;
+    padding-bottom: 80upx;
+  }
+
+  .login-title {
+    position: relative;
+    z-index: 9;
+    height: 380upx;
+
+    .logo {
+      padding-top: 220upx;
+      width: 100%;
+      text-align: center;
+
+      image {
+        width: 160upx;
+        height: 160upx;
+        border-radius: 20upx;
+      }
+    }
+  }
+
+  .form-wapper {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 32upx 100upx;
+    border-radius: 10upx;
+    background: #fff;
+
+    .title {
+      padding: 32upx 0 0 0;
+      color: #666;
+    }
+
+    .input-wapper {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 120upx;
+      flex-wrap: wrap;
+      align-items: center;
+      position: relative;
+
+      &:after {
+        @include bottom-line(#eee)
+      }
+
+      .lside {
+        width: 54upx;
+        text-align: left;
+      }
+
+      .rside {
+        flex: 1;
+      }
+
+      .iconfont {
+        font-size: 40upx;
+        color: #454459;
+      }
+
+      input {
+        padding: 30upx 0;
+        height: 120upx;
+        font-size: 32upx;
+      }
+
+      .input-placeholder {
+        color: #c2c2c2;
+      }
+
+      .get-code-btn {
+        border: 0;
+        background: #fff;
+        font-size: 28upx;
+        color: #2999F8;
+        text-align: right;
+        padding-left: 0;
+        padding-right: 0;
+
+        &:after {
+          border: 0;
+        }
+      }
+    }
+  }
+
+  .login-btn {
+    display: block;
+    line-height: 90upx;
+    text-align: center;
+    width: 700upx;
+    height: 90upx;
+    font-size: 32upx;
+    color: #fff;
+    background-color: #3994D8;
+    border-radius: 45px;
+    &:after {
+      border: 0;
+    }
+  }
+
+  .agreement {
+    width: 100%;
+    text-align: center;
+    color: #666;
+    line-height: 50upx;
+    padding-bottom: 48upx;
+    text {
+      color: $fu-main-color;
+    }
+  }
+}

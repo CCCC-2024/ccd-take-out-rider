@@ -1,0 +1,27 @@
+page {
+  background-color: #FFFFFF;
+}
+.warp {
+  padding: 0 32rpx;
+  .warpRow{
+    display: flex;
+    flex-direction: row;   
+    align-items: center;
+    justify-content: space-between;
+    padding: 40rpx 0;
+    position: relative;
+    &:after {
+      @include bottom-line(#eee)
+    }
+    .warpRow_left{
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      image{
+        width: 52rpx;
+        height: 52rpx;
+        margin-right: 24rpx;
+      }
+    }
+  }
+}

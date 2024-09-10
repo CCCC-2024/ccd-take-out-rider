@@ -1,0 +1,122 @@
+page{
+  background-color: #fff;
+}
+.login{
+  .page_header {
+  	width: 750rpx;
+  	height: 514rpx;
+    position: relative;
+    .bg_img{
+      width: 750rpx;
+      height: 514rpx;
+    }
+    .heade_con{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 750rpx;
+      height: 400rpx;
+      padding-top: 38rpx;
+      padding-left: 32rpx;
+      .nav_barH{
+        height: var(--status-bar-height);
+      }
+      .headTitie{
+        font-size: 50rpx;
+        color: #333333;
+        font-weight: 600;
+        position: absolute;
+        left: 75rpx;
+        bottom: 140rpx;
+      }
+    }
+  }
+  
+  
+	.login_input{
+		padding: 0 75upx;
+    margin-top: -190rpx;
+		.item{
+			padding: 20upx 0;
+      font-size: 30rpx;
+      position: relative;
+      &:after {
+        @include bottom-line(#eee)
+      }
+      .item_left{
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 24rpx;
+        input{
+        	display: inline-block;
+        	vertical-align: middle;
+        	font-size: 32upx;
+        	color: #BFBFBF;
+        }
+        .ipColor{
+          color: #BFBFBF;
+        }
+      }
+      .get-code-btn{
+      	width: 180rpx;
+      	border: 0;
+      	font-size: 28upx;
+      	color: #3994D8;
+      	text-align: right;
+      	background-color: #fff;
+      	&:after {
+      	  border: 0;
+      	}
+      }
+      button{
+        margin: 0 !important;
+        padding: 0 !important;
+        outline: none !important;
+      }
+		}
+	}
+	.button{
+		width: 600upx;
+		margin-top: 64upx;
+		line-height: 88upx;
+		border-radius: 44upx;
+		font-size: 36upx;
+		color: #fff;
+		background: linear-gradient(to right,#29CAFD,#1CABF5);
+	}
+  .switchLogin{
+    text-align: center;
+    margin-top: 24rpx;
+    font-size: 28rpx;
+    color: #3994D8;
+  }
+  
+	.agreen{
+		width: 100%;
+		text-align: center;
+		font-size: 24upx;
+		position: fixed;
+		bottom: 40upx;
+		left: 50%;
+		transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;   
+    align-items: center;
+    justify-content: center;
+    .agreen-style{
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      .chose-img{
+        width: 32rpx;
+        height: 32rpx;
+        margin-right: 15rpx;
+      }
+    }
+		.agrees{
+      color: #3994D8;
+    }
+	}
+}

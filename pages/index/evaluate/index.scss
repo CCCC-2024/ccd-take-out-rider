@@ -1,0 +1,120 @@
+page {
+  background-color: #F6F7F9;
+}
+.page-wapper{
+  // padding: 32rpx;
+  .topMsg{
+    display: flex;
+    flex-direction: row;   
+    align-items: center;
+    justify-content: space-between;
+    font-size: 28rpx;
+    padding: 33rpx 31rpx 33rpx 80rpx;
+    background-color: #FFFFFF;
+    .rates{
+      text-align: center;
+      .ratesTop{
+        font-size: 40rpx;
+        color: #FD0D1B;
+      }
+      .ratesBom{
+        font-size: 24rpx;
+      }
+    }
+    .lines{
+      width: 1rpx;
+      height: 40rpx;
+      background-color: #CCCCCC;
+    }
+  }
+  .evaluat-box{
+    background-color: #FFFFFF;
+    padding: 0 32rpx;
+    margin-top: 20rpx;
+    .evaluatList{
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      padding: 32rpx 0;
+      position: relative;
+      &:after {
+        @include bottom-line(#eee)
+      }
+      image{
+        width: 72rpx;
+        height: 72rpx;
+        border-radius: 50%;
+        margin-right: 15rpx;
+      }
+      .evaluatUserMsg{
+        width: 600rpx;
+        .msgTop{
+          width: 612rpx;
+          display: flex;
+          flex-direction: row;   
+          align-items: center;
+          justify-content: space-between;
+        }
+        .msgTime{
+          font-size: 24rpx;
+          color: #999999;
+          margin-top: 15rpx;
+        }
+      }
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  .item{
+    display: flex;
+    flex-direction: row;   
+    align-items: flex-start;
+    position: relative;
+    &:after {
+      @include bottom-line(#eee)
+    }
+    padding-bottom: 24rpx;
+    image{
+      width: 72rpx;
+      height: 72rpx;
+      border-radius: 50%;
+      margin-right: 15rpx;
+    }
+    .item_con{
+      width: 0;
+      flex: 1;
+      .user_name{
+        font-size: 32rpx;
+        font-size: 550;
+        margin-bottom: 12rpx;
+      }
+      .eval_con{
+        font-size: 28rpx;
+        margin-top: 30rpx;
+      }
+      .eval_img{
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        flex-wrap: wrap;
+        image{
+          width: 180rpx;
+          height: 180rpx;
+          margin-right: 15rpx;
+          margin-top: 20rpx;
+        }
+      }
+      .eval_tip{
+        font-size: 24rpx;
+        margin-top: 24rpx;
+        color: #666666;
+      }
+    }
+  }
+}

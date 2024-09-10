@@ -1,0 +1,189 @@
+page{
+  background-color: #fff;
+}
+  .page_header {
+		width: 750rpx;
+		height: 514rpx;
+    position: relative;
+    .bg_img{
+      width: 750rpx;
+      height: 514rpx;
+    }
+    .heade_con{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 750rpx;
+      height: 400rpx;
+      .headTitie{
+        font-size: 50rpx;
+        color: #333333;
+        font-weight: 600;
+        position: absolute;
+        left: 65rpx;
+        bottom: 64rpx;
+      }
+    }
+	}
+	.login{
+		width: 686rpx;
+		padding: 32rpx;
+		margin: -160rpx 75rpx 0 32rpx;
+		border-radius: 16rpx;
+    position: relative;
+    z-index: 99;
+    font-size: 30rpx;
+		.login_title{
+			margin-bottom: 14rpx;
+			font-size: 40rpx;
+		}
+		.item{
+			padding: 32rpx 0;
+			border-bottom:1rpx solid #EEEEEE;
+      .item_left{
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 24rpx;
+        .entry{
+          display: flex;
+          flex-direction: row;   
+          align-items: center;
+          font-size: 32rpx;
+          input{
+            font-size: 32rpx;
+          }
+          .areaCode{
+            margin-right: 20rpx;
+            display: flex;
+            flex-direction: row;   
+            align-items: center;
+            .num{
+              margin-right: 15rpx;
+            }
+          }
+        }
+      }
+      .get-code-btn{
+      	width: 180rpx;
+      	border: 0;
+      	font-size: 28upx;
+      	color: #3994D8;
+      	text-align: right;
+      	background-color: #fff;
+      	&:after {
+      	  border: 0;
+      	}
+      }
+      button{
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      
+		}
+    .switchLogin{
+      text-align: right;
+      margin-top: 32rpx;
+      font-size: 28rpx;
+    }
+		
+		.login_sub{
+			height: 88rpx;
+			text-align: center;
+			line-height: 88rpx;
+			font-size: 32rpx;
+			color: #fff;
+			background: linear-gradient(to right,#29CAFD,#1CABF5);
+			border-radius: 44rpx;
+      margin: 113rpx auto 0;
+      width: 600rpx;
+		}
+    .other_oprice{
+      margin: 32rpx auto 0;
+      // width: 305rpx;
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      justify-content: center;
+      .forget_pawword{
+      	color: #999999;
+      }
+      .tips{
+        width: 5rpx;
+        height: 30rpx;
+        background-color: #ccc;
+        margin: 0 35rpx;
+      }
+    }
+	}
+  
+  // 快捷登录 start
+  .quick {
+    text-align: center;
+  
+    .quick-title {
+      margin: 100rpx 0 40rpx;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      .txt {
+        padding: 0 20rpx;
+        font-size: 24rpx;
+        font-family: PingFang-SC-Regular;
+        color: #999999;
+      }
+  
+      .line {
+        display: block;
+        width: 160rpx;
+        position: relative;
+  
+        &:after {
+          content: "";
+          position: absolute;
+          z-index: 0;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          border-bottom: 1px solid #EEEEEE;
+          transform: scaleY(0.5);
+          transform-origin: 0 0;
+        }
+      }
+    }
+  
+    image {
+      width: 80rpx;
+      height: 80rpx;
+      margin: 0 35rpx;
+    }
+	
+  }
+  .agreen{
+  	width: 100%;
+  	text-align: center;
+  	font-size: 24upx;
+  	position: fixed;
+  	bottom: 40upx;
+  	left: 50%;
+  	transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;   
+  align-items: center;
+  justify-content: center;
+  .agreen-style{
+    display: flex;
+    flex-direction: row;   
+    align-items: center;
+    .chose-img{
+      width: 32rpx;
+      height: 32rpx;
+      margin-right: 15rpx;
+    }
+  }
+  	.agrees{
+    color: #3994D8;
+  }
+  }

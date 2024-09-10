@@ -1,0 +1,33 @@
+page {
+  background: #FFFFFF;
+}
+.page-wapper {
+  text-align: center;
+  padding-top: 185rpx;
+  .succesImg{
+    width: 250rpx;
+    height: 180rpx;
+  }
+  .tips{
+    font-size: 36rpx;
+    font-weight: 600;
+    color: #333333;
+    margin-top: 40rpx;
+    margin-bottom: 32rpx;
+  }
+  .cashTip{
+    font-size: 28rpx;
+    color: #666666;
+  }
+  
+  .btns{
+    width: 350rpx;
+    height: 75rpx;
+    line-height: 75rpx;
+    border-radius: 45px;
+    text-align: center;
+    background-color: #3994D8;
+    margin: 200rpx auto 0;
+    color: #FFFFFF;
+  }
+}

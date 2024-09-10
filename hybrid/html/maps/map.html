@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <script src="./rem.js"></script>
+  <title>地图</title>
+</head>
+<style type="text/css">
+  *{padding:0;margin:0}
+  body,html{width:100%;height:413rpx;overflow:hidden}
+  #map{position:relative;width:100%;height:413rpx;display:flex;justify-content:center;align-items:center}
+  .loadinggif{width:.5rem;height:.5rem}
+  .gm-style-mtc{display:none}
+  .gmnoprint{display:none!important}
+  .gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom{display:none}
+  .gm-control-active.gm-fullscreen-control{display:none}
+  [class^="https://maps.google.com/maps"]{display:none!important}
+  .controls{margin-top:10px;border:1px solid transparent;border-radius:2px 0 0 2px;box-sizing:border-box;-moz-box-sizing:border-box;height:32px;outline:0;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  #pac-input{width:6.8rem;height:.8rem;box-sizing:border-box;position:fixed!important;top:1rem!important;left:.32rem!important;padding:0 .32rem;right:.32rem!important}
+  .pac-logo:after{display:none!important}
+  .btn{position:fixed;right:.4rem;bottom:.8rem;width:1.2rem;height:1.2rem;background-image:linear-gradient(45deg,rgba(0,187,44,.6),#00bb2c);font-size:.24rem;line-height:1.2;color:#fff;border-radius:50%;display:flex;justify-content:center;align-items:center;transition:all ease .3s;box-shadow:0 3px 15px rgba(0,0,0,.2)}
+  .gm-ui-hover-effect{
+    display: none !important;
+  }
+</style>
+
+<body>
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="map">
+        <img class="loadinggif" src="./loading.gif">
+    </div>
+    <div id="btn" class="btn">确定<br>选择</div>
+</body>
+<script src="./jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.2.js"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJjK-vWBcEhx84FYhfpJgtcJqiIo9ZZRw&libraries=places&callback=initMap" async defer></script> -->  
+<!-- 客户的秘钥:AIzaSyB-BX-KGMARGyn8FveEPZZkR_DEF0fy00M -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-BX-KGMARGyn8FveEPZZkR_DEF0fy00M&libraries=places&callback=initMap" async defer></script>
+
+<script type="text/javascript" charset="utf-8">
+var searchString2Obj = function(searchString) {
+  if(searchString.indexOf('?') == -1){
+    throw new Error('方法"searchString2Obj"的参数必须是一个带参数的链接');
+    return false;
+  }
+  searchString = searchString.substr(searchString.indexOf('?')+1);
+  let queryArr = searchString.split('&'),
+  queryObj = {};
+  Array.prototype.forEach.call(queryArr, function(item, index) {
+    item = item.split('=');
+    queryObj[item[0]] = decodeURI(item[1]);
+  });
+  return queryObj;
+};
+var searchInfo = searchString2Obj(location.href)
+
+var lngtxt = searchInfo.longitude || "-77.03658209999999";
+var lattxt = searchInfo.latitude || "38.9001875";
+var addresstxt = searchInfo.name || "1600 H St NW, Washington, DC 20006美国";
+
+var map;
+var marker;
+var infowindow;
+var geocoder;
+var markersArray = [];
+
+document.addEventListener('UniAppJSBridgeReady', function() {
+    uni.getEnv(function(res) {
+        initMap();
+        uni.postMessage({
+            data: {
+                action: 'test',
+                latitude: 'latitude',
+                longitude: 'longitude'
+            }
+        });
+    });
+});
+
+
+document.getElementById('btn').addEventListener('click', function(){
+	console.log({
+            action: 'chooseaddress',
+            latitude: lattxt,
+            longitude: lngtxt,
+            addresstxt: addresstxt
+        })
+    uni.postMessage({
+        data: {
+            action: 'chooseaddress',
+            latitude: lattxt,
+            longitude: lngtxt,
+            addresstxt: addresstxt
+        }
+    });
+})
+
+
+function initMap() {
+    // 获取当前地理位置
+    // initAutocomplete()
+    // return failed;
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var coords = position.coords;
+            lattxt = coords.latitude;
+            lngtxt = coords.longitude;
+            initAutocomplete()
+        }, function(err) {
+            console.log('navigator.geolocation error')
+            lattxt = searchInfo.latitude * 1 || 38.9001875;
+            lngtxt = searchInfo.longitude * 1 || -77.03658209999999;
+            initAutocomplete()
+        }, {
+            enableHighAccuracy: true, //是否要求高精度的地理位置信息
+            timeout: 10000, //对地理位置信息的获取操作做超时限制，如果再该事件内未获取到地理位置信息，将返回错误
+            maximumAge: 60 * 1000 //设置缓存有效时间，在该时间段内，获取的地理位置信息还是设置此时间段之前的那次获得的信息，超过这段时间缓存的位置信息会被废弃
+        })
+    } else {
+        // alert(globalLanguage.ditu.no_tip);
+        alert("你的浏览器不支持HTML5来获取地理位置信息。");
+    }
+}
+
+
+function initAutocomplete() {
+    var latlng = new google.maps.LatLng(lattxt, lngtxt);
+    console.log(google.maps.MapTypeId)
+    var myOptions = {
+        zoom: 13,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById('map'), myOptions);
+
+    geocoder = new google.maps.Geocoder(); //实例化地址解析
+    //监听点击地图事件
+    google.maps.event.addListener(map, 'click', function(event) {
+        placeMarker(event.latLng);
+    });
+    placeMarker(latlng)
+    // Create the search box and link it to the UI element.
+    var input = document.getElementById('pac-input');
+    var searchBox = new google.maps.places.SearchBox(input);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+    // Bias the SearchBox results towards current map's viewport.
+    map.addListener('bounds_changed', function() {
+        searchBox.setBounds(map.getBounds());
+    });
+
+    var markers = [];
+    // Listen for the event fired when the user selects a prediction and retrieve
+    // more details for that place.
+    searchBox.addListener('places_changed', function() {
+        var places = searchBox.getPlaces();
+
+        if (places.length == 0) {
+            return;
+        }
+
+        if(places.length == 1){
+            console.log(places)
+            clearOverlays(infowindow); //清除地图中的标记
+            marker = new google.maps.Marker({
+                position: places[0].geometry.location,
+                map: map
+            });
+            markersArray.push(marker);
+            attachSecretMessage(marker, places[0].geometry.location, places[0].formatted_address + places[0].name);
+            var bounds = new google.maps.LatLngBounds();
+            map.fitBounds(bounds);
+            if (places[0].geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(places[0].geometry.viewport);
+            } else {
+                bounds.extend(places[0].geometry.location);
+            }
+            return;
+        }
+
+        // Clear out the old markers.
+        markers.forEach(function(marker) {
+            marker.setMap(null);
+        });
+        markers = [];
+
+        // For each place, get the icon, name and location.
+        var bounds = new google.maps.LatLngBounds();
+        places.forEach(function(place) {
+            if (!place.geometry) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+            var icon = {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25)
+            };
+            //console.log(place.geometry.location.lat());
+            mapClick(place.geometry.location.lng(), place.geometry.location.lat(), place.name);
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+                map: map,
+                icon: icon,
+                title: place.name,
+                position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+        });
+        map.fitBounds(bounds);
+    });
+}
+
+function placeMarker(location) {
+    clearOverlays(infowindow); //清除地图中的标记
+    marker = new google.maps.Marker({
+        position: location,
+        map: map
+    });
+    markersArray.push(marker);
+    //根据经纬度获取地址
+    if (geocoder) {
+        geocoder.geocode({
+            'location': location
+        }, function(results, status) {
+            console.log(results)
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (results[0]) {
+                    attachSecretMessage(marker, results[0].geometry.location, results[0].formatted_address);
+                }
+            } else {
+                alert("Geocoder failed due to: " + status);
+            }
+        });
+    }
+}
+
+//在地图上显示经纬度地址
+function attachSecretMessage(marker, piont, address) {
+    lattxt = piont.lat()
+    lngtxt = piont.lng()
+    addresstxt = address
+    var message = "<b>坐标:</b>" + piont.lat() + " , " + piont.lng() + "<br />" + "<b>地址:</b>" + address;
+    var infowindow = new google.maps.InfoWindow({
+        content: message,
+        size: new google.maps.Size(50, 50)
+    });
+    infowindow.open(map, marker);
+    if (typeof(mapClick) == "function") mapClick(piont.lng(), piont.lat(), address);
+}
+
+//删除所有标记阵列中消除对它们的引用
+function clearOverlays(infowindow) {
+    if (markersArray && markersArray.length > 0) {
+        for (var i = 0; i < markersArray.length; i++) {
+            markersArray[i].setMap(null);
+        }
+        markersArray.length = 0;
+    }
+    if (infowindow) {
+        infowindow.close();
+    }
+}
+
+function setiInit() {
+    // 页面加载显示默认lng lat address---begin
+    if (lattxt != '' && lngtxt != '' && addresstxt != '') {
+        var latlng = new google.maps.LatLng(lattxt, lngtxt);
+        marker = new google.maps.Marker({
+            position: latlng,
+            map: map
+        });
+        markersArray.push(marker);
+        attachSecretMessage(marker, latlng, addresstxt);
+    }
+}
+
+function mapClick(lng, lat, address) {
+    // window.parent.document.getElementById("address_lng").value = lng;
+    // window.parent.document.getElementById("address_lat").value = lat;
+    // window.parent.document.getElementById("address").value = address;
+}
+window.onload = function() {
+    setiInit();
+}
+</script>
+
+</html>

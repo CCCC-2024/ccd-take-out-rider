@@ -1,0 +1,56 @@
+page {
+  height: 100%;
+  font-size: 28upx;
+  background: #fff;
+
+  .page-wapper {
+    min-height: 100vh;
+    /* #ifdef H5 */
+    min-height: calc(100vh - 44px);
+    /* #endif */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .top {
+      .icon {
+        width: 232upx;
+        height: 232upx;
+        display: block;
+        margin: auto;
+      }
+
+      .title {
+        font-size: 32upx;
+        color: #333;
+        font-weight: bold;
+        padding: 32upx;
+        text-align: center;
+      }
+
+      .desc {
+        font-size: 28upx;
+        color: #999999;
+        text-align: center;
+        padding: 0 134upx;
+        .price {
+          color: #F84E26;
+        }
+      }
+    }
+
+    .bottom {
+      border: none;
+      padding-top: 200upx;
+      padding-bottom: 200upx;
+      .btn {
+        width: 400upx;
+        height: 88rpx;
+        line-height: 88rpx;
+        background: linear-gradient(to right,#FF631B,#F64722);
+        color: #fff;
+      }
+    }
+  }
+}

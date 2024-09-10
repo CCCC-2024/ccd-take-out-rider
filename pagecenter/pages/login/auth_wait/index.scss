@@ -1,0 +1,48 @@
+page {
+  height: 100%;
+  font-size: 28upx;
+  background: #fff;
+  padding-top: 56rpx;
+
+  .page-wapper {
+    // min-height: 100vh;
+    /* #ifdef H5 */
+    // min-height: calc(100vh - 44px);
+    /* #endif */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .top {
+      font-size: 28upx;
+      color: #666;
+      text-align: center;
+      padding: 0 105upx;
+      .icon {
+        width: 180upx;
+        height: 180upx;
+        display: block;
+        margin: 0 auto 64rpx;
+      }
+    }
+    .bottom {
+      padding-top: 200upx;
+      .btn {
+        width: 280upx;
+        border: none !important;
+        height: 72rpx;
+        line-height: 72rpx;
+        text-align: center;
+        border-radius: 45px;
+      }
+      .btnOut{
+        background-color: #F6F6F6;
+      }
+      .btnAgain{
+        background: linear-gradient(to right,#29CAFD,#1CABF5);
+        color: #FFFFFF;
+      }
+    }
+  }
+}

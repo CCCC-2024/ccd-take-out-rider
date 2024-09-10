@@ -1,0 +1,37 @@
+page {
+  font-size: 28upx;
+  text-indent: 2em;
+  line-height: 46upx;
+  color: $uni-text-color;
+  background-color: #fff;
+
+  .page-wapper{
+    padding: 30upx;
+    font-size: 28upx;
+    color: #4a4a4a;
+    line-height: 46upx;
+    letter-spacing: 5upx;
+    image{
+      width: 100%;
+      margin: 60upx 0 0;
+    }
+  }
+}
+
+.login-btn {
+  display: block;
+  line-height: 90upx;
+  text-align: center;
+  width: 600upx;
+  height: 90upx;
+  font-size: 32upx;
+  color: #fff;
+  background-color: $fu-main-color !important;
+  background-blend-mode: normal, normal;
+  border-radius: 45px;
+  text-indent: 0;
+
+  &:after {
+    border: 0;
+  }
+}

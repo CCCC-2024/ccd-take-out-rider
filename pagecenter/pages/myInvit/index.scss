@@ -1,0 +1,45 @@
+page {
+  background-color: #F8F8F8;
+}
+.totalNum{
+  padding: 16rpx 32rpx;
+}
+.listContent{
+  background-color: #FFFFFF;
+  padding: 0 32rpx;
+  .everList{
+    padding: 32rpx 0;
+    display: flex;
+    flex-direction: row;   
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    &:after {
+      @include bottom-line(#eee)
+    }
+    .listLeft{
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      .head-img{
+        width: 72rpx;
+        height: 72rpx;
+        border-radius: 45px;
+        margin-right: 16rpx;
+      }
+      .delMsg{
+        margin-top: 11rpx;
+        font-size: 20rpx;
+        color: #999999;
+      }
+    }
+    .listRight{
+      text-align: right;
+      .time{
+        font-size: 20rpx;
+        color: #999999;
+        margin-top: 11rpx;
+      }
+    }
+  }
+}

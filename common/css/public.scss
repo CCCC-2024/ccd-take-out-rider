@@ -1,0 +1,341 @@
+/*==========================================
+=            public page header            =
+==========================================*/
+.public-page-top-bar {
+  position: fixed;
+  left: 0;
+  top: var(--status-bar-height);
+  right: 0;
+  height: 44px;
+  line-height: 44px;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  z-index: 9999;
+
+  &.black {
+    color: #000;
+  }
+}
+
+.public-page-status-bar {
+  position: fixed;
+  top: 0rpx;
+  width: 100%;
+  z-index: 99999;
+  width: 100%;
+  height: var(--status-bar-height);
+  background: #ffffff;
+}
+
+.public-page-header {
+  position: fixed;
+  left: 0;
+  height: 44px;
+  background: #fff;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  top: 0;
+  z-index: 999;
+  padding: 0 11rpx;
+  box-sizing: border-box;
+  top: var(--status-bar-height);
+
+  .lside {
+    width: 44px;
+    text-align: center;
+    display: flex;
+    text-align: center;
+    line-height: 44px;
+    justify-content: center;
+    align-items: center;
+
+    .back-image {
+      width: 70rpx;
+      height: 70rpx;
+    }
+
+    .return-btn {
+      width: 20rpx;
+      height: 36rpx;
+    }
+
+    .return-icon {
+      font-size: 32rpx;
+      &.withe {
+        color: #fff;
+      }
+    }
+
+    text {
+      color: #333333;
+      font-size: 50rpx;
+    }
+
+    .page-header-lside-avatar {
+      width: 56rpx;
+      height: 56rpx;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+
+      .page-header-lside-avatar-image {
+        width: 56rpx;
+        height: 56rpx;
+        border-radius: 50%;
+        background-color: #fff;
+      }
+
+      .page-header-lside-avatar-count {
+        width: $fu-fs-base;
+        height: $fu-fs-base;
+        background-color: #FF2F2F;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: -8rpx;
+        top: -8rpx;
+        display: flex;
+
+        .page-header-lside-avatar-count-text {
+          font-size: 18rpx;
+          color: #fff;
+          line-height: $fu-fs-base;
+        }
+      }
+    }
+  }
+
+  .center {
+    flex: 1;
+    padding: 0 50rpx;
+    align-items: center;
+    text-align: center;
+    font-size: $fu-fs-lg;
+    color: $uni-text-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.left {
+      padding-left: 6rpx;
+      text-align: left;
+      justify-content: flex-start;
+    }
+
+    &.white {
+      color: #fff;
+    }
+
+    .search-wrapper {
+      height: 64rpx;
+      background-color: #F6F7F9;
+      border-radius: 32rpx;
+      display: flex;
+      align-items: center;
+      padding: 0 32rpx;
+      width: 100%;
+      flex: 1;
+
+      .lside {
+        width: 32rpx;
+        height: 32rpx;
+      }
+
+      .rside {
+        flex: 1;
+
+        input {
+          font-size: $fu-fs-base;
+          text-align: left;
+          width: 100%;
+          height: 64rpx;
+          padding-left: 20rpx;
+        }
+      }
+    }
+  }
+
+  .rside {
+    width: 44px;
+    text-align: center;
+    display: flex;
+    text-align: center;
+    line-height: 44px;
+    justify-content: center;
+    align-items: center;
+
+    .page-header-rside-message {
+      width: 48rpx;
+      height: 48rpx;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+
+      .page-header-rside-message-image {
+        width: 48rpx;
+        height: 48rpx;
+      }
+
+      .page-header-rside-message-count {
+        width: $fu-fs-base;
+        height: $fu-fs-base;
+        background-color: #FF2F2F;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: -8rpx;
+        top: -8rpx;
+        display: flex;
+
+        .page-header-rside-message-count-text {
+          font-size: 18rpx;
+          color: #fff;
+          line-height: $fu-fs-base;
+        }
+      }
+    }
+  }
+}
+
+/*=====  End of public page header  ======*/
+/*=========================================
+=            public order list            =
+=========================================*/
+.public-order-list-item {
+  border-radius: 16rpx;
+  padding: 0 $fu-fs-sm;
+  background-color: #fff;
+  margin-top: 20rpx;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    height: 85rpx;
+    position: relative;
+    align-items: center;
+
+    &:after {
+      @include bottom-line(#eeeeee);
+    }
+
+    .time {
+      font-size: $fu-fs-sm;
+      color: #999;
+    }
+
+    .order-status {
+      font-size: $fu-fs-sm;
+      color: #FF7F50;
+    }
+  }
+
+  .body {
+    padding-top: 22rpx;
+
+    .title {
+      display: flex;
+      align-items: center;
+
+      .txt {
+        flex: 1;
+        width: 0;
+        font-size: $fu-fs-lg;
+        color: #333;
+        font-weight: bold;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 100%;
+        line-height: 65rpx;
+      }
+
+      .btn {
+        margin-left: 40rpx;
+        image {
+          width: 48rpx;
+          height: 48rpx;
+          display: block;
+        }
+      }
+    }
+
+    .body-item {
+      display: flex;
+      padding: 10rpx 0;
+
+      .lside {
+        height: 40rpx;
+        padding-right: 16rpx;
+        display: flex;
+        align-items: center;
+
+        image {
+          width: 32rpx;
+          height: 32rpx;
+        }
+      }
+
+      .rside {
+        line-height: 40rpx;
+        font-size: $fu-fs-base;
+        color: #999;
+      }
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 32rpx 0;
+
+    .lside {
+      display: flex;
+      align-items: center;
+
+      .money {
+        color: #FF2F2F;
+        font-weight: bold;
+        display: flex;
+        align-items: flex-end;
+
+        .unit {
+          font-size: 24rpx;
+          line-height: 1;
+          position: relative;
+          top: -6rpx;
+        }
+
+        .num {
+          font-size: 40rpx;
+          line-height: 1;
+        }
+      }
+
+      .desc {
+        font-size: $fu-fs-sm;
+        color: #999;
+        padding-left: 16rpx;
+      }
+    }
+
+    .rside {
+      display: flex;
+      align-items: center;
+
+      .button {
+        margin-right: 20rpx;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+/*=====  End of public order list  ======*/

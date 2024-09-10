@@ -1,0 +1,65 @@
+page {
+  box-sizing: border-box;
+  min-height: 100%;
+  font-size: 28upx;
+  padding-top: 82upx;
+  background: #ffffff;
+
+  .logo {
+    width: 172upx;
+    height: 172upx;
+    background: #ffffff;
+    box-shadow: 0px 0px 30upx rgba(153, 153, 153, 0.2);
+    border-radius: 28upx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0;
+
+    image {
+      width: 172upx;
+      height: 172upx;
+      border-radius: 32upx;
+    }
+  }
+
+  .main-color {
+    color: $fu-main-color;
+  }
+
+  .version {
+    font-size: 28upx;
+    font-weight: 600;
+    color: #333333;
+    text-align: center;
+    text-align: center;
+    margin-top: 40upx;
+  }
+  .compen_name{
+    font-size: 28rpx;
+    // font-weight: 600;
+    padding: 48rpx 0 24rpx;
+    text-align: center;
+  }
+  .ver_msg{
+    text-align: center;
+    font-size: 28rpx;
+    color: #999999;
+    view{
+      margin-top: 18rpx;
+    }
+  }
+
+  .company {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 40upx;
+    color: #A2A2A2;
+    font-size: 28upx;
+
+    view {
+      padding-bottom: 20upx;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "aid": 17,
+  "version": "1.0.1",
+  "components": [
+    "../../components/sanshui-payment-password/index.vue",
+    "../../components/sanshui-modal/index.vue"
+  ],
+  "static": []
+}

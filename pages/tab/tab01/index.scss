@@ -1,0 +1,390 @@
+page {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  background: #F8F8F9;
+  .page-wrapper {
+    .tab_title{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      color: #FFFFFF;
+      .status_bar{
+        height: var(--status-bar-height);
+        width: 100%;
+      }
+      .title{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32rpx;
+        height: 98rpx;
+        line-height: 98rpx;
+        font-size: 36rpx;
+        position: relative;
+        top:20rpx;
+        .title_left{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+        .title_right{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          .messageBox{
+            position: relative;
+            .messageImg{
+              width: 46rpx;
+              height: 46rpx;
+            }
+            .iconfont{
+              width: 40rpx;
+              height: 40rpx;
+              margin-right: 32rpx;
+            }
+            .nums{
+              position: absolute;
+              right: 20rpx;
+              top: 10rpx;
+              width: 32rpx;
+              height: 32rpx;
+              background-color: red;
+              border-radius: 50%;
+              color: #333;
+              font-size: 20rpx;
+            }
+          }
+        }
+      }
+    }
+    .contents{
+      font-size: 28rpx;
+      position: relative;
+      .bgImg{
+        width: 750rpx;
+        height: 208rpx;
+        position: fixed;
+        z-index: 9;
+        left: 0;
+        top: 0;
+        background: linear-gradient(to bottom, #22B375, #33BC6C);
+      }
+      .contentsCon{
+        min-height: 400rpx;
+      }
+      .orderMold{
+        padding:  calc(88rpx + var(--status-bar-height)) 24rpx 0;
+        background-color: #FFFFFF;
+        .grabOrders{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          .grabs{
+            position: relative;
+            color: #FFFFFF;
+            font-size: 36rpx;
+            .active{
+              font-size: 42rpx;
+            }
+            .line{
+              width: 52rpx;
+              height: 20rpx;
+              position: absolute;
+              left: 50%;
+              margin-left: -26rpx;
+              bottom: -25rpx;
+              border-radius: 40px;
+            }
+          }
+          .mar-style{
+            margin-right: 48rpx;
+          }
+        }
+        .form{
+          font-size: 24rpx;
+          position: relative;
+          .formType{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .cuts{
+              margin-right: 15rpx;
+            }
+          }
+          .formBox{
+            position: absolute;
+            right: 20rpx;
+            top: 50rpx;
+            background-color: #FFFFFF;
+            width: 140rpx;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 5px 5px 0 #f5f5f7;
+            padding: 0 8rpx;
+            .everForm{
+              padding: 10rpx 0;
+              position: relative;
+              &:after {
+                @include bottom-line(#eee)
+              }
+            }
+          }
+        }
+      }
+
+      .listBox{
+        padding: 24rpx 24rpx 0;
+        // position: absolute;
+        margin-top:50rpx;
+        .list{
+          position: relative;
+          // z-index: 99;
+          padding: 0 32rpx 32rpx;
+          background-color: #FFFFFF;
+          border-radius: 8rpx;
+          margin-top: 20rpx;
+          .lineStyle{
+            position: relative;
+            &:after {
+              @include bottom-line(#eee)
+            }
+          }
+          .list_row{
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 27rpx 0;
+            .lefts{
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              font-size: 34rpx;
+              .takeTip{
+                width: 80rpx;
+                height: 36rpx;
+                margin-right: 15rpx;
+              }
+            }
+            .orderCode{
+              color: #333333;
+              font-size: 42rpx;
+              font-weight: 600;
+            }
+            .status_txt{
+              font-size: 24rpx;
+              color: #666666;
+              display: block;
+              margin-top: 20rpx;
+            }
+            .gap{
+              font-size: 32rpx;
+              .advanc{
+                font-size: 28rpx;
+                color: #FF4444;
+              }
+            }
+            .list_receipts{
+              margin-left: -32rpx;
+              font-size: 28rpx;
+              display: inline-block;
+            }
+          }
+          .hourStyle{
+            background-color: #F8F8F8;
+            padding-left: 16rpx;
+            padding-right: 16rpx;
+            border-radius: 5px;
+          }
+
+          .list_con{
+            padding: 20rpx 0 32rpx;
+            position: relative;
+            .con_part{
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              .charact{
+                font-size: 18rpx;
+                margin-right: 15rpx;
+                text-align: center;
+                width: 120rpx;
+                .icon_img{
+                  width: 48rpx;
+                  height: 48rpx;
+                }
+                .disRang{
+                  min-width: 80rpx;
+                  background-color: #F6F7F9;
+                  padding: 5rpx 0;
+                  margin-top: 15rpx;
+                  border-radius: 3px;
+                  color: #999999;
+                }
+              }
+              .part_right{
+                flex: 1;
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: space-between;
+                padding: 24rpx 0;
+                .part_right_address{
+                  flex: 1;
+                  .addr_til{
+                    font-size: 24rpx;
+                    // color: #999999;
+                  }
+                  .addr{
+                    // margin-top: 8rpx;
+                    // font-weight: 600;
+                    margin-top: 16rpx;
+                    font-size: 28rpx;
+										// color: #999999;
+                  }
+                  .addr_dis{
+                    font-size: 36rpx;
+										font-weight: 600;
+                    color: #333;
+                  }
+                }
+                image{
+                  width: 36rpx;
+                  height: 36rpx;
+                }
+                .addressPhoto{
+                  width: 120rpx;
+                  height: 120rpx;
+                  border-radius: 5px;
+                }
+              }
+            }
+            .two_part{
+              margin-top: 40rpx;
+            }
+            .punct{
+              width: 6rpx;
+              height: 60rpx;
+              position: absolute;
+              left: 8rpx;
+              top: 40rpx;
+            }
+          }
+          .btns{
+            width: 624rpx;
+            height: 88rpx;
+            line-height: 88rpx;
+            border-radius: 45px;
+            text-align: center;
+            font-size: 30rpx;
+            background: linear-gradient(to right,#29CAFD, #1CABF5);
+            color: #fff;
+            margin: 20rpx auto 0;
+          }
+        }
+      }
+      .loading-wapper{
+        text-align: center;
+        margin-top: 40rpx;
+      }
+      .public-page-empty{
+        text-align: center;
+        padding-top: 300rpx;
+        position: relative;
+        z-index: 99999;
+        .txt{
+			color:#999999;
+			fonr-size:15px;
+			margin-top:32rpx;
+		}
+      }
+    }
+    .remind_prop{
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 999999;
+      .prop_box{
+        width: 530rpx;
+        // height: 381rpx;
+        background-color: #fff;
+        border-radius: 12rpx;
+        margin: 450rpx auto 0;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 40rpx 0 0;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        // justify-content: space-between;
+        .tx{
+          font-size: 32rpx;
+          color: #333333;
+        }
+        .tx_text{
+          font-size: 28rpx;
+          padding: 32rpx 0;
+          width: 100%;
+          position: relative;
+          &:after {
+            @include bottom-line(#eee)
+          }
+        }
+        .qd_btn{
+          // width: 200rpx;
+          // height: 64rpx;
+          border-radius: 45px;
+          font-size: 28rpx;
+          color: #3994D8;
+          margin: 0 auto;
+          padding: 32rpx 0;
+        }
+      }
+    }
+  }
+}
+
+	.locationOpen {
+		position: fixed;
+		top: 180upx;
+		z-index: 99899;
+		height: 60upx;
+		// width: 60%;
+		margin-left: 30upx;
+		border-radius: 10upx;
+		background-color: rgba(52, 52, 52, 0.5);
+		color: #fff;
+		line-height: 60upx;
+		display: flex;
+		align-items: center;
+		padding: 0 20upx;
+
+		.upward {
+			width: 60upx;
+			height: 60upx;
+			position: absolute;
+			bottom: 38upx;
+			left: 20upx;
+		}
+
+		.is-open {
+			// width: 120upx;
+			font-size: 16upx;
+			margin-left: 20upx;
+			background: #019C41;
+			color: #fff;
+		}
+
+		span {
+			margin-left: 30upx;
+		}
+	}

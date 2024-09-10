@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <script src="./rem.js"></script>
+  <title class="key">订单详情</title>
+</head>
+<style type="text/css">
+  *{padding:0;margin:0}
+  body,html{width:100%;height:220px;overflow:hidden}
+  #map{position:relative;width:100%;height:220px;display:flex;justify-content:center;align-items:center}
+  .loadinggif{width:.5rem;height:.5rem}
+  .gm-style-mtc{display:none}
+  .gmnoprint{display:none!important}
+  .gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom{display:none}
+  .gm-control-active.gm-fullscreen-control{display:none}
+  [class^="https://maps.google.com/maps"]{display:none!important}
+  .controls{margin-top:50px;border:1px solid transparent;border-radius:2px 0 0 2px;box-sizing:border-box;-moz-box-sizing:border-box;height:32px;outline:0;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  #pac-input{width:6.8rem;height:.8rem;box-sizing:border-box;position:fixed!important;top:1rem!important;left:.32rem!important;padding:0 .32rem;right:.32rem!important}
+  .pac-logo:after{display:none!important}
+  .btn{position:fixed;right:.4rem;bottom:.8rem;width:1.2rem;height:1.2rem;background-image:linear-gradient(45deg,rgba(0,187,44,.6),#00bb2c);font-size:.24rem;line-height:1.2;color:#fff;border-radius:50%;display:flex;justify-content:center;align-items:center;transition:all ease .3s;box-shadow:0 3px 15px rgba(0,0,0,.2)}
+  a[href^="https://maps.google.com/maps"]{ display: none !important; }
+  .gm-ui-hover-effect{
+    display: none !important;
+  }
+</style>
+
+<body>
+  <div id="map">
+    <img class="loadinggif" src="./loading.gif">
+  </div>
+</body>
+<script src="./jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.2.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFd3a8su2DvUO8hfFeKRhyDH4CkbKMDao=places&callback=initMap" async defer></script>
+<script type="text/javascript" charset="utf-8">
+// 解析地址栏参数
+var slat;
+var slng;
+var elat;
+var elng;
+var surl;
+var eurl;
+var markersArray=[];
+var searchString2Obj = function(searchString) {
+  if(searchString.indexOf('?') == -1){
+    throw new Error('方法"searchString2Obj"的参数必须是一个带参数的链接');
+    return false;
+  }
+  searchString = searchString.substr(searchString.indexOf('?')+1);
+  // console.log(searchString)
+  let queryArr = searchString.split('&'),
+  queryObj = {};
+  Array.prototype.forEach.call(queryArr, function(item, index) {
+    item = item.split('=');
+    queryObj[item[0]] = decodeURI(item[1]);
+  });
+  // console.log(queryObj)
+  if(queryObj.distance){
+    // console.log(queryObj.distance)
+  }
+  return queryObj;
+};
+
+var searchInfo = searchString2Obj(location.href)
+if(searchInfo.name){
+  $('.key').html(searchInfo.name)
+}else{
+  $('.key').html('订单详情')
+}
+// $('.key').html(searchInfo.name)
+var map;
+
+document.addEventListener('UniAppJSBridgeReady', function() {
+  uni.getEnv(function(res) {
+    // 执行到这里开始可以向APP页面通讯了
+  });
+});
+
+function initMap(mode) {
+  var type=2
+  if(type==1){
+     console.log(type)
+    // 路线的
+     //初始化创建对象  
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 7,
+      center: { lat: 41.85, lng: -87.65 },
+    });
+    directionsRenderer.setMap(map);
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+  }else{
+       // 非路线的
+    console.log(type)
+    // 外卖的
+    if(searchInfo.status){
+       console.log(searchInfo.eurl)
+       console.log(searchInfo.surl)
+       // surl用户头像 eurl 商家头像  
+       surl='https://app.ulifeorg.com'+searchInfo.surl
+       eurl='https://app.ulifeorg.com'+searchInfo.eurl
+    }else{
+      // 代办的
+      surl='https://app.ulifeorg.com/maps/dis1.png'
+      eurl='https://app.ulifeorg.com/maps/dis2.png'
+    }
+    var icon1 = {
+      url: surl,
+      size: new google.maps.Size(36, 54),
+      origin: new google.maps.Point(0, 0),
+      anchor: new google.maps.Point(18, 54),
+      scaledSize: new google.maps.Size(36, 54)
+    }
+    map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 14,//13-15
+      center: new google.maps.LatLng(searchInfo.lat * 1, searchInfo.lng * 1)
+    });
+    new google.maps.Marker({
+      position: new google.maps.LatLng(searchInfo.lat * 1, searchInfo.lng * 1),
+      icon: icon1,
+      map: map
+    })
+    
+    if(searchInfo.tlat){
+      var icon2 = {
+        url: eurl,
+        size: new google.maps.Size(36, 54),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(18, 54),
+        scaledSize: new google.maps.Size(36, 54)
+      }
+    
+      new google.maps.Marker({
+        position: new google.maps.LatLng(searchInfo.tlat * 1, searchInfo.tlng * 1),
+        icon: icon2,
+        map: map
+      })
+    }
+    
+    if(searchInfo.slat){
+      var icon2 = {
+        url: eurl,
+        size: new google.maps.Size(44, 36),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(22, 36),
+        scaledSize: new google.maps.Size(44, 36)
+      }
+    
+      new google.maps.Marker({
+        position: new google.maps.LatLng(searchInfo.slat * 1, searchInfo.slng * 1),
+        icon: icon2,
+        map: map
+      })
+    }
+  }
+  // 骑手位置
+  if(searchInfo.qlat){  
+    // console.log(searchInfo.qlat)
+    var icon3 = {
+       url: "https://app.ulifeorg.com/maps/disqs.png",
+       size: new google.maps.Size(44, 44),
+       origin: new google.maps.Point(0, 0),
+       anchor: new google.maps.Point(22, 54),
+       scaledSize: new google.maps.Size(44,44)    
+    }
+  
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(searchInfo.qlat * 1, searchInfo.qlng * 1),
+      icon: icon3,
+      map: map
+    })
+    markersArray.push(marker)
+    if(searchInfo.distance){
+      const contentString = ''
+        + '<div class="mapwrapper">'  
+        + '  <div class="txt">'
+        + '    ' + searchInfo.distance
+          + '    ' + searchInfo.distance2
+        + '  </div>'
+        + '</div>'
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString,
+      });
+      
+      infowindow.open(map, marker);
+    }
+  }
+}
+function clearOverlays(infowindow) {
+  console.log(123)
+    if (markersArray && markersArray.length > 0) {
+        for (var i = 0; i < markersArray.length; i++) {
+            markersArray[i].setMap(null);
+        }
+        markersArray.length = 0;
+    }
+    if (infowindow) {
+        infowindow.close();
+    }
+}
+function Update(lat,lng,distance,distance2){
+  // alert(222244544)
+  console.log(2222)
+  clearOverlays()
+  console.log(lat)
+  var icon3 = {
+       url: "https://app.ulifeorg.com/maps/disqs.png",
+       size: new google.maps.Size(44, 44),
+       origin: new google.maps.Point(0, 0),
+       anchor: new google.maps.Point(22, 54),
+       scaledSize: new google.maps.Size(44,44)    
+    }
+  
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(lat * 1, lng * 1),
+      icon: icon3,
+      map: map
+    })
+    markersArray.push(marker)
+    if(distance){
+      const contentString = ''
+        + '<div class="mapwrapper">'  
+        + '  <div class="txt">'
+        + '    ' + distance
+          + '    ' + distance2
+        + '  </div>'
+        + '</div>'
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString,
+      });
+      
+      infowindow.open(map, marker);
+    }
+  
+  
+}
+function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+  // console.log(searchInfo)
+  // 外卖的
+  // 0 订单待付款 1待商家接单 2待骑手接单 3骑手取货中 4骑手配送中
+  if(searchInfo.status){
+    if(searchInfo.qlat){
+      // 骑手的位置
+      // slat=searchInfo.qlat * 1
+      // slng=searchInfo.qlng * 1
+      slat=searchInfo.slat * 1
+      slng=searchInfo.slng * 1
+    }else{
+       // 商家的位置
+      slat=searchInfo.slat * 1
+      slng=searchInfo.slng * 1
+      // if(searchInfo.distance){
+      //   const contentString = ''
+      //     + '<div class="mapwrapper">'
+      //     + '  <div class="txt">'
+      //     + '    ' + searchInfo.distance
+      //       + '    ' + searchInfo.distance2
+      //     + '  </div>'
+      //     + '</div>'
+      //   var infowindow = new google.maps.InfoWindow({
+      //     content: contentString,
+      //   });
+        
+      //   infowindow.open(map, marker);
+      // }
+    }
+  }else{
+    // 代办的开始
+    slat=searchInfo.tlat * 1
+    slng=searchInfo.tlng * 1
+  }
+  
+  //用户的位置
+  elat=searchInfo.lat * 1
+  elng=searchInfo.lng * 1
+  
+        directionsService.route(
+          {
+            origin: {//开始点
+              lat:slat,
+              lng:slng
+            },
+            destination: {//结束点
+              lat:elat,
+              lng:elng
+            },
+			// 运输方式 
+            // travelMode: google.maps.TravelMode.DRIVING,//自带方式暂不使用
+			travelMode: 'DRIVING',
+			// https://developers.google.com/maps/documentation/javascript/directions#TravelModes  谷歌地图路线规划的计算方式
+			// https://developers.google.com/maps/coverage   查询谷歌地图覆盖路线的，各种出行方式的支持与否
+			
+          },
+          (response, status) => {
+            if (status === "OK") {
+              directionsRenderer.setDirections(response);
+            } else {
+              window.alert("Directions request failed due to " + status);
+            }
+          }
+        );
+      }
+      
+      
+      
+</script>
+
+</html>

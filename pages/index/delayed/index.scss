@@ -1,0 +1,88 @@
+page {
+  background-color: #FFFFFF;
+}
+.page-wapper{
+  padding: 0 32rpx;
+  font-size: 32rpx;
+  .lineStyle{
+    position: relative;
+    &:after {
+      @include bottom-line(#eee)
+    }
+  }
+  .pageRow{
+    padding: 32rpx 0;
+    display: flex;
+    flex-direction: row;   
+    align-items: center;
+    justify-content: space-between; 
+    .rowRight{
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      input{
+        margin-right: 16rpx;
+        text-align: right;
+      }
+    }
+  }
+  .lapse{
+    margin-top: 40rpx;
+    .lapseTitle{}
+    textarea{
+      width: 686rpx;
+      height: 340rpx;
+      background-color: #F8F8F8;
+      padding: 24rpx;
+      margin-top: 24rpx;
+      font-size: 28rpx;
+    }
+  }
+  .upimgBox{
+    display: flex;
+    flex-direction: row;   
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 40rpx;
+    .upImg{
+      width: 200rpx;
+      height: 200rpx;
+      margin-top: 24rpx;
+    }
+    .showImg{
+      width: 200rpx;
+      height: 200rpx;
+      margin-right: 20rpx;
+      margin-top: 24rpx;
+      position: relative;
+      .imgs{
+        width: 200rpx;
+        height: 200rpx;
+        border-radius: 5px;
+      }
+      .closeImg{
+        position: absolute;
+        right: 10rpx;
+        top: 10rpx;
+      }
+    }
+  }
+  .uplodTip{
+    font-size: 24rpx;
+    color: #BFBFBF;
+    margin-top: 24rpx;
+  }
+  .Submit{
+    width: 686rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    border-radius: 45px;
+    background: linear-gradient(to right,#29CAFD,#1CABF5);
+    color: #FFFFFF;
+    position: fixed;
+    left: 50%;
+    margin-left: -343rpx;
+    bottom: 64rpx;
+    text-align: center;
+  }
+}

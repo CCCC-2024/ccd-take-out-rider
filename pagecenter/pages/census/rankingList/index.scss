@@ -1,0 +1,210 @@
+page {
+  background-color: #FFFFFF;
+}
+.warp{
+  padding-bottom: 120rpx;
+  .hearTab{
+    width: 750rpx;
+    // padding: 28rpx 32rpx;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    .status_bar{
+      height: var(--status-bar-height);
+      width: 100%;
+    }
+    .hearTabTil{
+      // background: linear-gradient(#4AD4FD, #4BC7FC);
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      justify-content: space-between;
+      color: #FFFFFF;
+      padding: 32rpx;
+      .rank{
+        margin-right: 25rpx;
+        font-size: 36rpx;
+      }
+    }
+  }
+  .hearder{
+    position: relative;
+    .bgImg{
+      width: 750rpx;
+      height: 900rpx;
+    }
+    .senior{
+      position: absolute;
+      left: 0;
+      top: calc(100rpx + var(--status-bar-height));
+      width: 100%;
+      .tabSwitch{
+        width: 100%;
+        height: 72rpx;
+        display: flex;
+        flex-direction: row;   
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 24rpx;
+        .tab-ever{
+          position: relative;
+          height: 72rpx;
+          color: #FFFFFF;
+          font-size: 28rpx;
+          .tabCont{
+            height: 72rpx;
+            line-height: 72rpx;
+            font-size: 28rpx;
+          }
+          .countNone{
+            height: 72rpx;
+            line-height: 72rpx;
+            font-size: 24rpx;
+          }
+          .lineImg{
+            width: 50rpx;
+            height: 20rpx;
+            position: absolute;
+            left: 50%;
+            margin-left: -15rpx;
+            bottom: -8rpx;
+          }
+        }
+      }
+      .topThree{
+        height: 673rpx;
+        position: relative;
+        .rankBtnImg{
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 750rpx;
+          height: 360rpx;
+        }
+        .numStyle{
+          font-size: 40rpx;
+          color: #2782E2;
+          font-weight: 600;
+        }
+        .num1{
+          position: absolute;
+          left: 327rpx;
+          bottom: 260rpx;
+        }
+        .num2{
+          position: absolute;
+          left: 123rpx;
+          bottom: 165rpx;
+        }
+        .num3{
+          position: absolute;
+          right: 123rpx;
+          bottom: 120rpx;
+        }
+        .userStyle{
+          .headBgCircle{
+            width: 168rpx;
+            height: 168rpx;
+            border-radius: 50%;
+            
+            border: 5px solid #84CCFD;
+            .headPhoto{
+              width: 168rpx;
+              height: 168rpx;
+              border-radius: 50%;
+              position: absolute;
+              left: 50%;
+              margin-left: -84rpx;
+              top: 0;
+              z-index: 600;
+            }
+          }
+          .userName{
+            margin-top: 20rpx;
+            color: #FFFFFF;
+            font-size: 32rpx;
+            font-weight: 600;
+          }
+        }
+        .user1{
+          position: absolute;
+          left: 234rpx;
+          bottom: 400rpx;
+          text-align: center;
+          width: 281rpx;
+          .userBg{
+            position: relative;
+            .bgImgStyle{
+              width: 281rpx;
+              height: 173rpx;
+              
+            }
+            .headBgCircle{
+              position: absolute;
+              left: 50%;
+              margin-left: -92rpx;
+              top: 10rpx;
+              width: 168rpx;
+              height: 168rpx;
+              // background-color: #84CCFD;
+              border-radius: 50%;
+              border: 10rpx solid #84CCFD;
+              .headPhoto1{
+                width: 168rpx;
+                height: 168rpx;
+                border-radius: 50%;
+                position: absolute;
+                z-index: 600;
+                left: 0;
+              }
+            }
+            .headBgCirclea_active{
+              width: 178rpx;
+              height: 178rpx;
+            }
+          }
+        }
+        .user2{
+          position: absolute;
+          left: 64rpx;
+          bottom: 318rpx;
+          text-align: center;
+        }
+        .user3{
+          position: absolute;
+          right: 64rpx;
+          bottom: 255rpx;
+          text-align: center;
+        }
+      }
+      .seniority{
+        padding: 30rpx 40rpx 0;
+        .seniorityList{
+          display: flex;
+          flex-direction: row;   
+          align-items: center;
+          justify-content: space-between;
+          font-size: 28rpx;
+          font-weight: 600;
+					padding: 24rpx 0;
+          .rowLeft{
+            display: flex; 
+            flex-direction: row;    
+            align-items: center;
+            .headImg{
+              width: 72rpx;
+              height: 72rpx;
+              margin-right: 32rpx;
+              margin-left: 32rpx;
+							border-radius: 50%;
+            }
+          }
+          .rowRight{
+            
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+page {
+  background-color: #ffffff;
+}
+.page-wrapper {
+    padding: 0 32rpx;
+    .item{
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+      position: relative;
+      &:after {
+        @include bottom-line(#eee)
+      }
+      padding: 20rpx 0;
+      .msg_img_left{
+        position: relative;
+        width: 108rpx;
+        height: 108rpx;
+        margin-right: 24rpx;
+        image{
+          width: 108rpx;
+          height: 108rpx;
+          margin-right: 15rpx;
+        }
+      }
+      .item_content{
+        flex: 1;
+        font-size: 24rpx;
+        color: #999999;
+        width: 0;
+        .top{
+          display: flex;
+          flex-direction: row;   
+          align-items: center;
+          justify-content: space-between;
+          .bt_title{
+            font-size: 32rpx;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15rpx;
+          }
+        }
+        .con{
+          margin-top: 12rpx;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          word-break: break-all;
+        }
+      }
+    }
+    .no_message{
+      text-align: center;
+      padding-top: 240rpx;
+      image{
+        width: 350rpx;
+        height: 250rpx;
+      }
+    }
+  }

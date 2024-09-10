@@ -1,0 +1,23 @@
+page {
+  background-color: #fff;
+}
+.warp{
+  padding: 0 24rpx;
+  font-size: 32rpx;
+  .item{
+    display: flex;
+    flex-direction: row;   
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    &:after {
+      @include bottom-line(#eee)
+    }
+    padding: 32rpx 0;
+    .item_right{
+      display: flex;
+      flex-direction: row;   
+      align-items: center;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+page {
+  background-color: #fff;
+}
+.page-wapper{
+  .conutImg{
+    width: 750rpx;
+    height: 394rpx;
+  }
+  .conutCount{
+    text-indent: 2em;
+    padding: 32rpx;
+  }
+  .card{
+    border-radius: 5px;
+    padding: 0 32rpx;
+    display: flex;
+    flex-direction: row;   
+    align-items: center;
+    justify-content: space-between; 
+    .cardPhone{
+      width: 334rpx;
+      height: 152rpx;
+      position: relative;
+      image{
+        width: 334rpx;
+        height: 152rpx;
+        border-radius: 5px;
+      }
+      .cardCount{
+        width: 334rpx;
+        height: 152rpx;
+        position: absolute;
+        left: 0;
+        top: 0;
+        text-align: left;
+        color: #FFFFFF;
+        padding: 30rpx 0 0 32rpx;
+        .sever_num{
+          font-size: 32rpx;
+          // margin-top: 56rpx;
+        }
+        .sever_time{
+          font-size: 28rpx;
+          margin-top: 15rpx;
+        }
+        .dial{
+          width: 324rpx;
+          height: 64rpx;
+          line-height: 64rpx;
+          border-radius: 45px;
+          margin: 56rpx auto 0;
+          text-align: center;
+          background-color: #FFFFFF;
+          color: #FE6304;
+        }
+      }
+    }
+  }
+}

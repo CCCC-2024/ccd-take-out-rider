@@ -1,0 +1,35 @@
+page {
+  background-color: #fff;
+}
+.warp {
+  .item{
+    display: flex;
+    flex-direction: row;   
+    align-items: center;
+    padding: 32rpx 23rpx;
+    position: relative;
+    &:after {
+      @include bottom-line(#eee)
+    }
+    font-size: 32rpx;
+    input{
+      font-size: 32rpx;
+      margin-left: 32rpx;
+    }
+  }
+  .submit{
+    width: 686rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    border-radius: 45px;
+    position: fixed;
+    bottom: 48rpx;
+    left: 50%;
+    margin-left: -343rpx;
+    text-align: center;
+    background: linear-gradient(to right, #29CAFD, #1CABF5);
+    color: #fff;
+    font-size: 32rpx;
+    font-weight: 550;
+  }
+}

@@ -1,0 +1,33 @@
+page {
+  background-color: #F8F8F8;
+
+  .page-wrapper {
+    padding: 0 32upx;
+    .list{
+      padding: 32rpx;
+      background-color: #FFFFFF;
+      margin-top: 32rpx;
+      border-radius: 5px;
+      .list-title {
+        font-size: 32rpx;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        word-break: break-all;
+      }
+      .content {
+        font-size: 28upx;
+        color: #333;
+        line-height: 36upx;
+        position: relative;
+        
+      }
+      .time{
+        text-align: left;
+        color: #999999;
+        font-size: 24rpx;
+        margin-top: 24rpx;
+      }
+    }
+  }
+}
