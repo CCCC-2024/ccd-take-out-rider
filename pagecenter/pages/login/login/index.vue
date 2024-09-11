@@ -615,7 +615,7 @@ export default {
             );
 
             // 保存 token 和用户信息
-            console.log("尝试一下-----这里是userInfo：", res.data.data);
+            console.log("---userInfo：", res.data.data);
             global.token = res.data.data.userToken;
             global.userInfo = res.data.data;
             uni.setStorageSync("USER_TOKEN", global.token);

@@ -239,10 +239,9 @@
         // minixPagingListsApi: global.apiUrls.orderList,                     // 接口
         // allowOnloadGetList: false,                                         // 禁止一进入页面就加载接口
         city: global.userInfo ? global.userInfo.province + '-' + global.userInfo.city : '',
-        lng: '118.15589',
-        lat: '24.53076',
-        // lng: "113.6429744466146",
-        // lat:"34.73823567708333",// 经纬度
+        lng: '121.45417', // 经度
+        lat: '37.491969', // 维度
+
         showCkeck: false,
         is_remind: false,
         checked: true, // 0 休息  1工作
@@ -293,8 +292,6 @@
     },
     onLoad() {
       if (!global.userInfo) {
-        console.log("onload--用户没有信息！")
-        console.log(global)
         uni.reLaunch({
           url: '/pagecenter/pages/login/login/index'
         });
@@ -407,7 +404,7 @@
       this.listData = [];
       uni.hideLoading({})
       this.getListData(() => {
-        console.log(11111111)
+        console.log("下拉刷新成功")
         uni.stopPullDownRefresh()
       });
     },
@@ -428,7 +425,6 @@
        */
       getTidings() {
         this.$api.post(global.apiUrls.informats).then(res => {
-          console.log( "tab01的index.vue" + res)
           if (res.data.code == 1) {
             this.countBum = res.data.data
           } else {
@@ -440,13 +436,15 @@
       },
 
       /**
-       * 获取个人信息(是否是工作状态)
+       * 获取个人信息(是否是工作状态)（获取骑手的认证信息）
        */
       getUser() {
+        // 请求路径为：601f3acd328dc
+        // 根据url中的注释，这个方法是用来获取骑手的认证信息
         this.$api.post(global.apiUrls.getRiderMsg).then(res => {
           console.log(res)
           if (res.data.code == 1) {
-            this.checked = res.data.data.is_open == 1 ? true : false
+            this.checked = res.data.data == 1 ? true : false
           } else {
             this.$message.info(res.data.msg)
           }
