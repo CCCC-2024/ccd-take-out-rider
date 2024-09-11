@@ -293,6 +293,8 @@
     },
     onLoad() {
       if (!global.userInfo) {
+        console.log("onload--用户没有信息！")
+        console.log(global)
         uni.reLaunch({
           url: '/pagecenter/pages/login/login/index'
         });
@@ -426,7 +428,7 @@
        */
       getTidings() {
         this.$api.post(global.apiUrls.informats).then(res => {
-          console.log(res)
+          console.log( "tab01的index.vue" + res)
           if (res.data.code == 1) {
             this.countBum = res.data.data
           } else {
