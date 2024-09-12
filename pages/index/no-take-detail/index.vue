@@ -173,7 +173,7 @@
         latitude: '39.916527',
         longitude: '116.397128',
 
-        is_remind: false,                        // 接单成功提示
+        is_remind: false,                         // 接单成功提示
         isOk: 1,                                 // 1 抢单成功 0抢单失败
         isShow: false,                           // 是否展示数据
       }

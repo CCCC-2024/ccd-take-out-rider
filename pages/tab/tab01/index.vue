@@ -117,7 +117,7 @@
               <view class="remark">备注：<span style="color:#FD710F">小心驾驶！</span></view>
               <view class="remark">订单类别：<span style="color:#FD710F" v-if="item.type">{{item.type === 0 ? 跑腿 : 外卖}}</span>
               </view>
-              <view class="btns" @click="grab(item.order_sn,item.type)">
+              <view class="btns" @click="grab(item.orderSn,item.type)">
                 {{LANGUAGE_DATA['立即抢单'][LANGUAGE]}}
               </view>
             </view>
@@ -203,7 +203,7 @@
                   </view>
                 </view>
               </view>
-              <view class="btns" @click="grab(item.order_sn,item.type)">
+              <view class="btns" @click="grab(item.orderSn,item.type)">
                 {{LANGUAGE_DATA['立即抢单'][LANGUAGE]}}
               </view>
             </view>
@@ -614,8 +614,10 @@
        * 跳转页面
        */
       jumpPages(item) {
+        const url = '/pages/index/no-take-detail/index?type=' + (item.type + 2);
+        console.log('跳转的URL:', url); // 打印URL
         uni.navigateTo({
-          url: '/pages/index/no-take-detail/index?type=' + item.type,
+          url: url,
           success: function(res) {
             // 通过eventChannel向被打开页面传送数据
             res.eventChannel.emit('acceptDataFromOpenerPage', {
@@ -629,6 +631,8 @@
       grab(orderSn, type) {
         let that = this
         that.orderSn = orderSn
+        // 打印接收到的参数
+        console.log(`接收到的订单号: ${orderSn}, 类型: ${type}`);
         uni.showModal({
           title: `${that.LANGUAGE_DATA['温馨提示'][that.LANGUAGE]}`,
           content: `${that.LANGUAGE_DATA['是否立即抢单'][that.LANGUAGE]}`,
