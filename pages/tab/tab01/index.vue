@@ -42,26 +42,26 @@
 
         <view class="listBox">
           <block v-for="(item,index) in listData" :key="index">
-            <view class="list" v-if="item.is_waimai==1">
+            <view class="list" v-if="item.type==1">
               <view class="list_row" @click="jumpPages(item)">
                 <view class="lefts">
                   <!-- <text style="color: #999999;">{{LANGUAGE_DATA['订单'][LANGUAGE]}}
                     {{item.order_sn}}</text> -->
                 </view>
-                <text class="orderCode">#{{item.store_code}}</text>
+                <text class="orderCode">#{{item.orderSn}}</text>
               </view>
               <view class="list_row hourStyle" @click="jumpPages(item)">
                 <view class="gap">
                   <view class="">
                     <text>期望送达时间：</text>
-                    <text style="color: #FF4444;">{{item.expect_time}}</text>
+                    <text style="color: #FF4444;">{{item.expectedDeliveryTime}}</text>
                   </view>
                   <!-- <view class="" v-if="item.is_once != 0">{{LANGUAGE_DATA['立即配送'][LANGUAGE]}}</view> -->
                   <!-- <view class="advanc" v-if="item.is_advance == 1">{{LANGUAGE_DATA['需垫付商品费预计'][LANGUAGE]}}{{LANGUAGE_DATA['￥'][LANGUAGE]}}{{item.advance_money}}</view> -->
                 </view>
                 <view class="list_receipts">
                   <text>{{LANGUAGE_DATA['预计收入'][LANGUAGE]}}</text>
-                  <text style="font-size: 32rpx;color: #FF4444;">￥{{item.estimated_income}}</text>
+                  <text style="font-size: 32rpx;color: #FF4444;">￥{{item.estimatedIncome}}</text>
                 </view>
               </view>
               <view class="list_con">
@@ -70,13 +70,19 @@
                     <!-- <image src="/static/img/locaStar.png" mode="" class="icon_img" v-if="item.type == 3"></image>
                     <image src="/static/img/take-img.png" mode="" class="icon_img" v-if="item.type == 1"></image> -->
                     <image src="/static/img/take-img.png" mode="" class="icon_img"></image>
-                    <view class="disRang">{{item.start_distance}}km</view>
+                    <!-- TODO 计算订单距离
+                    <view class="disRang">{{item.start_distance}}km</view> -->
+                    <view class="disRang">5km</view>
                   </view>
                   <view class="part_right lineStyle">
                     <view class="part_right_address">
-                      <view class="addr_dis">{{item.store_info.name}}</view>
+                      <!-- TODO
+                      <view class="addr_dis">{{item.store_info.name}}</view> -->
+                      <view class="addr_dis">处处达</view>
                       <view class="addr">
-                        {{item.store_info.address}}{{item.store_info.address_desc}}
+                        <!-- TODO
+                        {{item.store_info.address}}{{item.store_info.address_desc}} -->
+                        处处达咖啡
                       </view>
                     </view>
                     <!-- <image src="/static/img/adres.png" mode=""></image> -->
@@ -85,25 +91,33 @@
                 <view class="con_part" @click="jumpPages(item)">
                   <view class="charact">
                     <image src="/static/img/locaEnd.png" mode="" class="icon_img"></image>
-                    <view class="disRang">{{item.end_distance}}km</view>
+                    <!-- TODO
+                    <view class="disRang">{{item.end_distance}}km</view> -->
+                    <view class="disRang">0km</view>
                   </view>
                   <view class="part_right">
                     <view class="part_right_address">
                       <view class="addr_dis" style="font-size: 26rpx;">
-                        {{item.order_info.receiver_name}}({{item.order_info.receiver_mobile}})
+                        <!-- TODO
+                        {{item.order_info.receiver_name}}({{item.order_info.receiver_mobile}}) -->
+                        李四(132****1234)
                       </view>
                       <view class="addr" style="font-size: 34rpx; color: #333;">
-                        {{item.order_info.province}}{{item.order_info.city}}{{item.order_info.district}}{{item.order_info.receiver_address}}
+                        <!-- TODO
+                        {{item.order_info.province}}{{item.order_info.city}}{{item.order_info.district}}{{item.order_info.receiver_address}} -->
+                        山东省烟台市烟大北校区
                       </view>
                     </view>
                     <!-- <image src="/static/img/adres.png" mode=""></image> -->
                   </view>
                 </view>
               </view>
-              <view class="remark">备注：<span style="color:#FD710F" v-if="item.remark">{{item.remark}}</span></view>
-              <view class="remark">订单类别：<span style="color:#FD710F" v-if="item.type_name">{{item.type_name}}</span>
+              <!-- TODO
+              <view class="remark">备注：<span style="color:#FD710F" v-if="item.remark">{{item.remark}}</span></view> -->
+              <view class="remark">备注：<span style="color:#FD710F">小心驾驶！</span></view>
+              <view class="remark">订单类别：<span style="color:#FD710F" v-if="item.type">{{item.type === 0 ? 跑腿 : 外卖}}</span>
               </view>
-              <view class="btns" @click="grab(item.order_sn,item.is_waimai)">
+              <view class="btns" @click="grab(item.order_sn,item.type)">
                 {{LANGUAGE_DATA['立即抢单'][LANGUAGE]}}
               </view>
             </view>
@@ -118,13 +132,13 @@
                   <text style="color: #999999;">{{LANGUAGE_DATA['订单'][LANGUAGE]}}
                     {{item.order_sn}}</text>
                 </view>
-                <text class="orderCode">#{{item.pick_code}}</text>
+                <text class="orderCode">#{{item.orderSn}}</text>
               </view>
               <view class="list_row hourStyle" @click="jumpPages(item)">
                 <view class="gap">
                   <view class="">
-                    <text v-if="item.type == 3">期望送达时间：</text>
-                    <text style="color: #FF4444;">{{item.pickup_time}}</text>
+                    <text v-if="item.type == 1">期望送达时间：</text>
+                    <text style="color: #FF4444;">{{item.type}}</text>
                   </view>
                 </view>
                 <view class="list_receipts">
@@ -139,45 +153,57 @@
                     <image src="/static/img/take-img.png" mode="" class="icon_img"
                       v-if="item.type == 1 || item.type == 2"></image>
                     <image src="/static/img/locaStar.png" mode="" class="icon_img" v-if="item.type == 3"></image>
-                    <view class="disRang">{{item.start_address_info.distance}}km</view>
+                    <!-- TODO
+                    <view class="disRang">{{item.start_address_info.distance}}km</view> -->
+                    <view class="disRang">5km</view>
                   </view>
                   <view class="part_right lineStyle">
                     <view class="part_right_address">
-                      <view class="addr_dis">{{item.start_address_info.name}}</view>
+                      <!-- TODO
+                      <view class="addr_dis">{{item.start_address_info.name}}</view> -->
+                      <view class="addr_dis">处处达咖啡</view>
                       <view class="addr">
-                        {{item.start_address_info.province}}{{item.start_address_info.city}}{{item.start_address_info.district}}{{item.start_address_info.address}}
+                        <!-- TODO
+                        {{item.start_address_info.province}}{{item.start_address_info.city}}{{item.start_address_info.district}}{{item.start_address_info.address}} -->
+                        山东省烟台市烟台大学
                       </view>
                     </view>
                     <!-- <image src="/static/img/adres.png" mode="" class="addr_img"></image> -->
                   </view>
                 </view>
-                <view class="con_part" @click="jumpPages(item)" v-if="item.mode != 2">
+                <view class="con_part" @click="jumpPages(item)" v-if="item.status != 2">
                   <view class="charact">
                     <!-- <image src="/static/img/take-img.png" mode="" class="icon_img" v-if="item.type == 1"></image> -->
                     <image src="/static/img/locaEnd.png" mode="" class="icon_img"></image>
                     <!-- <image src="/static/img/locaStar.png" mode="" class="icon_img" v-if="item.type == 3 item.type == 1 || item.type == 2"></image> -->
-                    <view class="disRang">{{item.end_address_info.distance}}km</view>
+                     <!-- TODO
+                    <view class="disRang">{{item.end_address_info.distance}}km</view> -->
+                    <view class="disRang">5km</view>
                   </view>
                   <view class="part_right">
                     <view class="part_right_address">
                       <view class="addr_dis" style="font-size: 26rpx;">
-                        {{item.end_address_info.name}}
+                        <!-- TODO
+                        {{item.end_address_info.name}} -->
+                        李四
                       </view>
                       <view class="addr" style="font-size: 34rpx; color: #333;">
-                        {{item.end_address_info.province}}{{item.end_address_info.city}}{{item.end_address_info.district}}{{item.end_address_info.address}}
+                        <!-- TODO
+                        {{item.end_address_info.province}}{{item.end_address_info.city}}{{item.end_address_info.district}}{{item.end_address_info.address}} -->
+                        山东省烟台市烟台大学
                       </view>
                     </view>
                     <!-- <image src="/static/img/adres.png" mode="" class="addr_img"></image> -->
                   </view>
                 </view>
-                <view class="con_part" @click="jumpPages(item)" v-if="item.mode == 2">
+                <view class="con_part" @click="jumpPages(item)" v-if="item.status == 2">
                   <view class="charact"></view>
                   <view class="part_right">
                     <image :src="item.end_address" mode="aspectFill" class="addressPhoto"></image>
                   </view>
                 </view>
               </view>
-              <view class="btns" @click="grab(item.order_sn,item.is_waimai)">
+              <view class="btns" @click="grab(item.order_sn,item.type)">
                 {{LANGUAGE_DATA['立即抢单'][LANGUAGE]}}
               </view>
             </view>
@@ -437,9 +463,9 @@
 
       /**
        * 获取个人信息(是否是工作状态)（获取骑手的认证信息）
+       * 601f3acd328dc
        */
       getUser() {
-        // 请求路径为：601f3acd328dc
         // 根据url中的注释，这个方法是用来获取骑手的认证信息
         this.$api.post(global.apiUrls.getRiderMsg).then(res => {
           console.log(res)
@@ -459,6 +485,7 @@
       getListData() {
         if (!this.allowLoadMore || this.loadedAll || this.noListData) return;
         this.allowLoadMore = false;
+      // 请求url为：602e001051ead
         this.$api.post(this.InterfaceApi, {
           lng: this.lng,
           lat: this.lat,
@@ -466,16 +493,15 @@
           type: this.isCheck,
           is_once: this.orderTypeNum
         }).then(res => {
-          // console.log(res)
           uni.stopPullDownRefresh()
+
           if (res.data.code == 1) {
-            console.log(res.data)
-            if (res.data.data.length > 0) {
-              let tempLists = res.data.data,
-                totalPage = res.data.data.last_page,
+            if (res.data.data.records.length > 0) {
+              let tempLists = res.data.data.records,
+                totalPage = res.data.data.total,
                 listData = this.listData;
               this.listData.push(...tempLists);
-              console.log('订单数据', this.listData);
+              console.log('订单数据', listData);
               this.allowLoadMore = true;
               this.loadedAll = true;
               if (this.page >= totalPage) this.loadedAll = true;
@@ -497,6 +523,7 @@
 
       /**
        * 设置骑手状态
+       * 601f3acd328dc
        */
       setWork() {
         this.$api.post(global.apiUrls.setStatus, {
@@ -588,7 +615,7 @@
        */
       jumpPages(item) {
         uni.navigateTo({
-          url: '/pages/index/no-take-detail/index?type=' + item.is_waimai,
+          url: '/pages/index/no-take-detail/index?type=' + item.type,
           success: function(res) {
             // 通过eventChannel向被打开页面传送数据
             res.eventChannel.emit('acceptDataFromOpenerPage', {
